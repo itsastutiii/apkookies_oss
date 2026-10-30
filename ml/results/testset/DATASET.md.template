@@ -1,0 +1,18 @@
+# APK test set: dataset description
+
+Copy to `ml/results/testset/DATASET.md` and fill in. Don't list file paths or anything that identifies a person.
+
+- **Collected by / dates:**
+- **Total APKs:** (benign: , malicious: )
+- **Groups** (the `group` column) and counts:
+  - indian_bank:
+  - other_benign:
+  - banking_trojan:
+  - sms_stealer:
+  - fake_bank_app:
+- **Where benign apps came from** (e.g. Google Play official listings, app version, date pulled):
+- **Where malicious apps came from** (MalwareBazaar / ThreatFox / vendor report; family names):
+- **How each label was checked** (e.g. MalwareBazaar tag + VirusTotal ≥ N detections; benign = official store + developer name matches the bank):
+- **Selection rules / anything excluded and why:**
+- **Known caveats** (e.g. small sample, families over-represented, apps older than X):
+- **Run settings:** policy used, Quark on/off, any errors and why:

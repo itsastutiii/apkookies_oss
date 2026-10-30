@@ -1,0 +1,65 @@
+# Graduated-response thresholds (config-driven, NOT scattered across touchpoints).
+# The orchestrator and every client read these same numbers.
+#
+# Score range: 0.0 (benign) .. 1.0 (critical). Severity tiers below.
+
+# Which engine produces the base score (backend/scoring/modes.py):
+#   rules     = transparent: static analysis + knowledge graph + rules, no ML model
+#   model     = the shipped ML model + rules (experimental)
+#   retrained = models retrained on AndroZoo features, from ml/models/retrained/
+# Override per process with APKOOKIES_SCORING_MODE. Changing it re-checks remembered verdicts.
+scoring_mode: model
+
+# EXPERIMENTAL, off by default: add +0.08 per capability that the knowledge graph
+# marks ANOMALOUS_FOR the app's category (max +0.24). Off because the category is a
+# guess and the edges were hand-written; the remaining edges now cite a source, but
+# none is data-derived yet. The KG still appears in reports as context.
+kg_context_boost: false
+
+severity_tiers:
+  low:      { min: 0.00, max: 0.25 }
+  medium:   { min: 0.25, max: 0.55 }
+  high:     { min: 0.55, max: 0.80 }
+  critical: { min: 0.80, max: 1.01 }
+
+# Per-touchpoint response bands. action ∈ {allow, warn, block}.
+# `escalate_to_sandbox` requests an async dynamic-analysis job when uncertain.
+response_policy:
+  default:
+    allow_below: 0.25
+    warn_below: 0.55
+    block_at_or_above: 0.55
+    escalate_to_sandbox_between: [0.40, 0.70]   # "uncertain" band
+
+  browser_extension:      # must decide before file finishes writing -> conservative
+    allow_below: 0.20
+    warn_below: 0.45
+    block_at_or_above: 0.45
+
+  bank_sdk:               # SDK only blocks/warns; score computed server-side
+    allow_below: 0.30
+    warn_below: 0.60
+    block_at_or_above: 0.60
+
+  whatsapp_bot:
+    allow_below: 0.25
+    warn_below: 0.55
+    block_at_or_above: 0.55
+
+# Mandatory human review before any automated action on Critical reports.
+human_review_required_at_or_above: 0.80
+
+# Verdict inheritance (backend/hashing). Matches are on the uncompressed DEX
+# contents, so re-zipping or re-signing doesn't break them. SAFETY RULE: a fuzzy
+# or DEX-content match can only inherit a MALICIOUS verdict. A benign verdict
+# only ever comes from an exact whole-APK SHA-256 match, because a repackaged
+# bank app fuzzy-matches the genuine one.
+#
+# UNCALIBRATED: both numbers below are placeholders, to be tuned on the APK
+# test set (docs/TESTSET.md) by measuring same-family vs different-family
+# similarity distributions.
+verdict_inheritance_similarity: 0.90   # 0..1; TLSH (primary) distance mapped below
+tlsh_max_distance: 300                 # TLSH distance mapped to similarity 0
+# With these values a match needs TLSH distance <= 30. Illustration on the test
+# fixtures: identical 0, appended code 28, 5% of bytes changed 33, 1% random
+# byte changes 52, an unrelated DEX 289.

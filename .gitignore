@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Env & secrets
+.env
+*.local
+
+# Ephemeral analysis artifacts (must never be committed)
+.artifacts/
+.chroma/
+*.apk
+*.dex
+*.apks
+*.xapk
+*.aab
+samples/
+
+# Quark-Engine writes a dated log (e.g. 2026-10-26.quark.log) into the working directory
+*.quark.log
+
+# Test-set label files list local APK paths; they stay on the analysis PC
+labels.csv
+
+# Datasets and bot runtime data (phone numbers -> never commit)
+data/raw/
+*.npz
+webhook_logs/
+received_files/
+*.api-key
+
+# Node / clients
+node_modules/
+dist/
+build/
+.gradle/
+**/build/
+**/.gradle/
+
+# Gradle and Android (the wrapper and gradle.properties ARE committed)
+local.properties
+*.jks
+*.keystore
+
+# IDE / OS
+.vscode/
+.idea/
+.claude/
+.DS_Store
+Thumbs.db
+
+# Benign, source-built DEX test fixtures (tests/fixtures/dex_src) ARE committed
+!tests/fixtures/dex/*.dex
+

@@ -1,0 +1,11 @@
+{
+  "n_samples": 11598,
+  "n_permissions": 266,
+  "labels": {
+    "1": "ADWARE",
+    "2": "BANKING",
+    "3": "SMS",
+    "4": "RISKWARE",
+    "5": "BENIGN"
+  }
+}

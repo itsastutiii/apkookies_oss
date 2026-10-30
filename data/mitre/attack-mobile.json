@@ -1,0 +1,4010 @@
+{
+ "attack_version": "20.0",
+ "domain": "mobile-attack",
+ "source_url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/mobile-attack/mobile-attack-20.0.json",
+ "source_sha256": "824f7d8a37e7893b29e4c6ca6d87b5fbbf3b228ec6384f1a69ee20d523ff59e5",
+ "source_modified": "2026-10-13T17:54:40.393Z",
+ "licence": "ATT&CK terms of use: https://attack.mitre.org/resources/legal-and-branding/terms-of-use/",
+ "techniques": {
+  "T1398": {
+   "name": "Boot or Logon Initialization Scripts",
+   "full_name": "Boot or Logon Initialization Scripts",
+   "tactics": [
+    "persistence"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1399": {
+   "name": "Modify Trusted Execution Environment",
+   "full_name": "Modify Trusted Execution Environment",
+   "tactics": [
+    "defense-evasion",
+    "persistence"
+   ],
+   "subtechnique_of": null,
+   "deprecated": true,
+   "revoked": false
+  },
+  "T1400": {
+   "name": "Modify System Partition",
+   "full_name": "Modify System Partition",
+   "tactics": [
+    "defense-evasion",
+    "persistence",
+    "impact"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1401": {
+   "name": "Device Administrator Permissions",
+   "full_name": "Device Administrator Permissions",
+   "tactics": [
+    "privilege-escalation"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1402": {
+   "name": "Broadcast Receivers",
+   "full_name": "Broadcast Receivers",
+   "tactics": [
+    "persistence",
+    "execution"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1403": {
+   "name": "Modify Cached Executable Code",
+   "full_name": "Modify Cached Executable Code",
+   "tactics": [
+    "persistence"
+   ],
+   "subtechnique_of": null,
+   "deprecated": true,
+   "revoked": false
+  },
+  "T1404": {
+   "name": "Exploitation for Privilege Escalation",
+   "full_name": "Exploitation for Privilege Escalation",
+   "tactics": [
+    "privilege-escalation"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1405": {
+   "name": "Exploit TEE Vulnerability",
+   "full_name": "Exploit TEE Vulnerability",
+   "tactics": [
+    "credential-access",
+    "privilege-escalation"
+   ],
+   "subtechnique_of": null,
+   "deprecated": true,
+   "revoked": false
+  },
+  "T1406": {
+   "name": "Obfuscated Files or Information",
+   "full_name": "Obfuscated Files or Information",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1406.001": {
+   "name": "Steganography",
+   "full_name": "Obfuscated Files or Information: Steganography",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1406",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1406.002": {
+   "name": "Software Packing",
+   "full_name": "Obfuscated Files or Information: Software Packing",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1406",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1407": {
+   "name": "Download New Code at Runtime",
+   "full_name": "Download New Code at Runtime",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1408": {
+   "name": "Disguise Root/Jailbreak Indicators",
+   "full_name": "Disguise Root/Jailbreak Indicators",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1409": {
+   "name": "Stored Application Data",
+   "full_name": "Stored Application Data",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1410": {
+   "name": "Network Traffic Capture or Redirection",
+   "full_name": "Network Traffic Capture or Redirection",
+   "tactics": [
+    "collection",
+    "credential-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1411": {
+   "name": "Input Prompt",
+   "full_name": "Input Prompt",
+   "tactics": [
+    "credential-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1412": {
+   "name": "Capture SMS Messages",
+   "full_name": "Capture SMS Messages",
+   "tactics": [
+    "collection",
+    "credential-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1413": {
+   "name": "Access Sensitive Data in Device Logs",
+   "full_name": "Access Sensitive Data in Device Logs",
+   "tactics": [
+    "collection",
+    "credential-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": true,
+   "revoked": false
+  },
+  "T1414": {
+   "name": "Clipboard Data",
+   "full_name": "Clipboard Data",
+   "tactics": [
+    "collection",
+    "credential-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1415": {
+   "name": "URL Scheme Hijacking",
+   "full_name": "URL Scheme Hijacking",
+   "tactics": [
+    "credential-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1416": {
+   "name": "URI Hijacking",
+   "full_name": "URI Hijacking",
+   "tactics": [
+    "credential-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1417": {
+   "name": "Input Capture",
+   "full_name": "Input Capture",
+   "tactics": [
+    "collection",
+    "credential-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1417.001": {
+   "name": "Keylogging",
+   "full_name": "Input Capture: Keylogging",
+   "tactics": [
+    "collection",
+    "credential-access"
+   ],
+   "subtechnique_of": "T1417",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1417.002": {
+   "name": "GUI Input Capture",
+   "full_name": "Input Capture: GUI Input Capture",
+   "tactics": [
+    "credential-access",
+    "collection"
+   ],
+   "subtechnique_of": "T1417",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1418": {
+   "name": "Software Discovery",
+   "full_name": "Software Discovery",
+   "tactics": [
+    "discovery"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1418.001": {
+   "name": "Security Software Discovery",
+   "full_name": "Software Discovery: Security Software Discovery",
+   "tactics": [
+    "discovery"
+   ],
+   "subtechnique_of": "T1418",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1419": {
+   "name": "Device Type Discovery",
+   "full_name": "Device Type Discovery",
+   "tactics": [
+    "discovery"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1420": {
+   "name": "File and Directory Discovery",
+   "full_name": "File and Directory Discovery",
+   "tactics": [
+    "discovery"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1421": {
+   "name": "System Network Connections Discovery",
+   "full_name": "System Network Connections Discovery",
+   "tactics": [
+    "discovery"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1422": {
+   "name": "System Network Configuration Discovery",
+   "full_name": "System Network Configuration Discovery",
+   "tactics": [
+    "discovery"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1422.001": {
+   "name": "Internet Connection Discovery",
+   "full_name": "System Network Configuration Discovery: Internet Connection Discovery",
+   "tactics": [
+    "discovery"
+   ],
+   "subtechnique_of": "T1422",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1422.002": {
+   "name": "Wi-Fi Discovery",
+   "full_name": "System Network Configuration Discovery: Wi-Fi Discovery",
+   "tactics": [
+    "discovery"
+   ],
+   "subtechnique_of": "T1422",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1423": {
+   "name": "Network Service Scanning",
+   "full_name": "Network Service Scanning",
+   "tactics": [
+    "discovery"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1424": {
+   "name": "Process Discovery",
+   "full_name": "Process Discovery",
+   "tactics": [
+    "discovery"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1426": {
+   "name": "System Information Discovery",
+   "full_name": "System Information Discovery",
+   "tactics": [
+    "discovery"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1427": {
+   "name": "Attack PC via USB Connection",
+   "full_name": "Attack PC via USB Connection",
+   "tactics": [
+    "lateral-movement"
+   ],
+   "subtechnique_of": null,
+   "deprecated": true,
+   "revoked": false
+  },
+  "T1428": {
+   "name": "Exploitation of Remote Services",
+   "full_name": "Exploitation of Remote Services",
+   "tactics": [
+    "lateral-movement"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1429": {
+   "name": "Audio Capture",
+   "full_name": "Audio Capture",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1430": {
+   "name": "Location Tracking",
+   "full_name": "Location Tracking",
+   "tactics": [
+    "collection",
+    "discovery"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1430.001": {
+   "name": "Remote Device Management Services",
+   "full_name": "Location Tracking: Remote Device Management Services",
+   "tactics": [
+    "collection",
+    "discovery"
+   ],
+   "subtechnique_of": "T1430",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1430.002": {
+   "name": "Impersonate SS7 Nodes",
+   "full_name": "Location Tracking: Impersonate SS7 Nodes",
+   "tactics": [
+    "collection",
+    "discovery"
+   ],
+   "subtechnique_of": "T1430",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1432": {
+   "name": "Access Contact List",
+   "full_name": "Access Contact List",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1433": {
+   "name": "Access Call Log",
+   "full_name": "Access Call Log",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1435": {
+   "name": "Access Calendar Entries",
+   "full_name": "Access Calendar Entries",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1436": {
+   "name": "Commonly Used Port",
+   "full_name": "Commonly Used Port",
+   "tactics": [
+    "command-and-control",
+    "exfiltration"
+   ],
+   "subtechnique_of": null,
+   "deprecated": true,
+   "revoked": false
+  },
+  "T1437": {
+   "name": "Application Layer Protocol",
+   "full_name": "Application Layer Protocol",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1437.001": {
+   "name": "Web Protocols",
+   "full_name": "Application Layer Protocol: Web Protocols",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": "T1437",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1438": {
+   "name": "Exfiltration Over Other Network Medium",
+   "full_name": "Exfiltration Over Other Network Medium",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1439": {
+   "name": "Eavesdrop on Insecure Network Communication",
+   "full_name": "Eavesdrop on Insecure Network Communication",
+   "tactics": [
+    "network-effects"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1444": {
+   "name": "Masquerade as Legitimate Application",
+   "full_name": "Masquerade as Legitimate Application",
+   "tactics": [
+    "initial-access",
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": true,
+   "revoked": false
+  },
+  "T1446": {
+   "name": "Device Lockout",
+   "full_name": "Device Lockout",
+   "tactics": [
+    "impact",
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1447": {
+   "name": "Delete Device Data",
+   "full_name": "Delete Device Data",
+   "tactics": [
+    "impact",
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1448": {
+   "name": "Carrier Billing Fraud",
+   "full_name": "Carrier Billing Fraud",
+   "tactics": [
+    "impact"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1449": {
+   "name": "Exploit SS7 to Redirect Phone Calls/SMS",
+   "full_name": "Exploit SS7 to Redirect Phone Calls/SMS",
+   "tactics": [
+    "network-effects"
+   ],
+   "subtechnique_of": null,
+   "deprecated": true,
+   "revoked": false
+  },
+  "T1450": {
+   "name": "Exploit SS7 to Track Device Location",
+   "full_name": "Exploit SS7 to Track Device Location",
+   "tactics": [
+    "network-effects"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1451": {
+   "name": "SIM Card Swap",
+   "full_name": "SIM Card Swap",
+   "tactics": [
+    "initial-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1452": {
+   "name": "Manipulate App Store Rankings or Ratings",
+   "full_name": "Manipulate App Store Rankings or Ratings",
+   "tactics": [
+    "impact"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1453": {
+   "name": "Abuse Accessibility Features",
+   "full_name": "Abuse Accessibility Features",
+   "tactics": [
+    "collection",
+    "credential-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1454": {
+   "name": "Malicious SMS Message",
+   "full_name": "Malicious SMS Message",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1456": {
+   "name": "Drive-By Compromise",
+   "full_name": "Drive-By Compromise",
+   "tactics": [
+    "initial-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1458": {
+   "name": "Replication Through Removable Media",
+   "full_name": "Replication Through Removable Media",
+   "tactics": [
+    "initial-access",
+    "lateral-movement"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1461": {
+   "name": "Lockscreen Bypass",
+   "full_name": "Lockscreen Bypass",
+   "tactics": [
+    "initial-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1463": {
+   "name": "Manipulate Device Communication",
+   "full_name": "Manipulate Device Communication",
+   "tactics": [
+    "network-effects"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1464": {
+   "name": "Network Denial of Service",
+   "full_name": "Network Denial of Service",
+   "tactics": [
+    "impact"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1465": {
+   "name": "Rogue Wi-Fi Access Points",
+   "full_name": "Rogue Wi-Fi Access Points",
+   "tactics": [
+    "network-effects"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1466": {
+   "name": "Downgrade to Insecure Protocols",
+   "full_name": "Downgrade to Insecure Protocols",
+   "tactics": [
+    "network-effects"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1467": {
+   "name": "Rogue Cellular Base Station",
+   "full_name": "Rogue Cellular Base Station",
+   "tactics": [
+    "network-effects"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1468": {
+   "name": "Remotely Track Device Without Authorization",
+   "full_name": "Remotely Track Device Without Authorization",
+   "tactics": [
+    "remote-service-effects"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1469": {
+   "name": "Remotely Wipe Data Without Authorization",
+   "full_name": "Remotely Wipe Data Without Authorization",
+   "tactics": [
+    "remote-service-effects"
+   ],
+   "subtechnique_of": null,
+   "deprecated": true,
+   "revoked": false
+  },
+  "T1470": {
+   "name": "Obtain Device Cloud Backups",
+   "full_name": "Obtain Device Cloud Backups",
+   "tactics": [
+    "remote-service-effects"
+   ],
+   "subtechnique_of": null,
+   "deprecated": true,
+   "revoked": false
+  },
+  "T1471": {
+   "name": "Data Encrypted for Impact",
+   "full_name": "Data Encrypted for Impact",
+   "tactics": [
+    "impact"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1472": {
+   "name": "Generate Fraudulent Advertising Revenue",
+   "full_name": "Generate Fraudulent Advertising Revenue",
+   "tactics": [
+    "impact"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1474": {
+   "name": "Supply Chain Compromise",
+   "full_name": "Supply Chain Compromise",
+   "tactics": [
+    "initial-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1474.001": {
+   "name": "Compromise Software Dependencies and Development Tools",
+   "full_name": "Supply Chain Compromise: Compromise Software Dependencies and Development Tools",
+   "tactics": [
+    "initial-access"
+   ],
+   "subtechnique_of": "T1474",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1474.002": {
+   "name": "Compromise Hardware Supply Chain",
+   "full_name": "Supply Chain Compromise: Compromise Hardware Supply Chain",
+   "tactics": [
+    "initial-access"
+   ],
+   "subtechnique_of": "T1474",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1474.003": {
+   "name": "Compromise Software Supply Chain",
+   "full_name": "Supply Chain Compromise: Compromise Software Supply Chain",
+   "tactics": [
+    "initial-access"
+   ],
+   "subtechnique_of": "T1474",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1475": {
+   "name": "Deliver Malicious App via Authorized App Store",
+   "full_name": "Deliver Malicious App via Authorized App Store",
+   "tactics": [
+    "initial-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": true,
+   "revoked": false
+  },
+  "T1476": {
+   "name": "Deliver Malicious Application via Other Means",
+   "full_name": "Deliver Malicious Application via Other Means",
+   "tactics": [
+    "initial-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1477": {
+   "name": "Exploit via Radio Interfaces",
+   "full_name": "Exploit via Radio Interfaces",
+   "tactics": [
+    "initial-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": true,
+   "revoked": false
+  },
+  "T1478": {
+   "name": "Install Insecure or Malicious Configuration",
+   "full_name": "Install Insecure or Malicious Configuration",
+   "tactics": [
+    "defense-evasion",
+    "initial-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1481": {
+   "name": "Web Service",
+   "full_name": "Web Service",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1481.001": {
+   "name": "Dead Drop Resolver",
+   "full_name": "Web Service: Dead Drop Resolver",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": "T1481",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1481.002": {
+   "name": "Bidirectional Communication",
+   "full_name": "Web Service: Bidirectional Communication",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": "T1481",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1481.003": {
+   "name": "One-Way Communication",
+   "full_name": "Web Service: One-Way Communication",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": "T1481",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1507": {
+   "name": "Network Information Discovery",
+   "full_name": "Network Information Discovery",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1508": {
+   "name": "Suppress Application Icon",
+   "full_name": "Suppress Application Icon",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1509": {
+   "name": "Non-Standard Port",
+   "full_name": "Non-Standard Port",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1510": {
+   "name": "Clipboard Modification",
+   "full_name": "Clipboard Modification",
+   "tactics": [
+    "impact"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1512": {
+   "name": "Video Capture",
+   "full_name": "Video Capture",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1513": {
+   "name": "Screen Capture",
+   "full_name": "Screen Capture",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1516": {
+   "name": "Input Injection",
+   "full_name": "Input Injection",
+   "tactics": [
+    "defense-evasion",
+    "impact"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1517": {
+   "name": "Access Notifications",
+   "full_name": "Access Notifications",
+   "tactics": [
+    "collection",
+    "credential-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1520": {
+   "name": "Domain Generation Algorithms",
+   "full_name": "Domain Generation Algorithms",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1521": {
+   "name": "Encrypted Channel",
+   "full_name": "Encrypted Channel",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1521.001": {
+   "name": "Symmetric Cryptography",
+   "full_name": "Encrypted Channel: Symmetric Cryptography",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": "T1521",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1521.002": {
+   "name": "Asymmetric Cryptography",
+   "full_name": "Encrypted Channel: Asymmetric Cryptography",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": "T1521",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1521.003": {
+   "name": "SSL Pinning",
+   "full_name": "Encrypted Channel: SSL Pinning",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": "T1521",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1523": {
+   "name": "Evade Analysis Environment",
+   "full_name": "Evade Analysis Environment",
+   "tactics": [
+    "defense-evasion",
+    "discovery"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1532": {
+   "name": "Archive Collected Data",
+   "full_name": "Archive Collected Data",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1533": {
+   "name": "Data from Local System",
+   "full_name": "Data from Local System",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1540": {
+   "name": "Code Injection",
+   "full_name": "Code Injection",
+   "tactics": [
+    "persistence",
+    "privilege-escalation",
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1541": {
+   "name": "Foreground Persistence",
+   "full_name": "Foreground Persistence",
+   "tactics": [
+    "defense-evasion",
+    "persistence"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1544": {
+   "name": "Ingress Tool Transfer",
+   "full_name": "Ingress Tool Transfer",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1575": {
+   "name": "Native API",
+   "full_name": "Native API",
+   "tactics": [
+    "defense-evasion",
+    "execution"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1576": {
+   "name": "Uninstall Malicious Application",
+   "full_name": "Uninstall Malicious Application",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1577": {
+   "name": "Compromise Application Executable",
+   "full_name": "Compromise Application Executable",
+   "tactics": [
+    "persistence"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1579": {
+   "name": "Keychain",
+   "full_name": "Keychain",
+   "tactics": [
+    "credential-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1581": {
+   "name": "Geofencing",
+   "full_name": "Geofencing",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1582": {
+   "name": "SMS Control",
+   "full_name": "SMS Control",
+   "tactics": [
+    "impact"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1603": {
+   "name": "Scheduled Task/Job",
+   "full_name": "Scheduled Task/Job",
+   "tactics": [
+    "execution",
+    "persistence"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1604": {
+   "name": "Proxy Through Victim",
+   "full_name": "Proxy Through Victim",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1605": {
+   "name": "Command-Line Interface",
+   "full_name": "Command-Line Interface",
+   "tactics": [
+    "execution"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1616": {
+   "name": "Call Control",
+   "full_name": "Call Control",
+   "tactics": [
+    "collection",
+    "impact",
+    "command-and-control"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1617": {
+   "name": "Hooking",
+   "full_name": "Hooking",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1618": {
+   "name": "User Evasion",
+   "full_name": "User Evasion",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": true
+  },
+  "T1623": {
+   "name": "Command and Scripting Interpreter",
+   "full_name": "Command and Scripting Interpreter",
+   "tactics": [
+    "execution"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1623.001": {
+   "name": "Unix Shell",
+   "full_name": "Command and Scripting Interpreter: Unix Shell",
+   "tactics": [
+    "execution"
+   ],
+   "subtechnique_of": "T1623",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1624": {
+   "name": "Event Triggered Execution",
+   "full_name": "Event Triggered Execution",
+   "tactics": [
+    "persistence"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1624.001": {
+   "name": "Broadcast Receivers",
+   "full_name": "Event Triggered Execution: Broadcast Receivers",
+   "tactics": [
+    "persistence"
+   ],
+   "subtechnique_of": "T1624",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1625": {
+   "name": "Hijack Execution Flow",
+   "full_name": "Hijack Execution Flow",
+   "tactics": [
+    "persistence"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1625.001": {
+   "name": "System Runtime API Hijacking",
+   "full_name": "Hijack Execution Flow: System Runtime API Hijacking",
+   "tactics": [
+    "persistence"
+   ],
+   "subtechnique_of": "T1625",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1626": {
+   "name": "Abuse Elevation Control Mechanism",
+   "full_name": "Abuse Elevation Control Mechanism",
+   "tactics": [
+    "privilege-escalation"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1626.001": {
+   "name": "Device Administrator Permissions",
+   "full_name": "Abuse Elevation Control Mechanism: Device Administrator Permissions",
+   "tactics": [
+    "privilege-escalation"
+   ],
+   "subtechnique_of": "T1626",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1627": {
+   "name": "Execution Guardrails",
+   "full_name": "Execution Guardrails",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1627.001": {
+   "name": "Geofencing",
+   "full_name": "Execution Guardrails: Geofencing",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1627",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1628": {
+   "name": "Hide Artifacts",
+   "full_name": "Hide Artifacts",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1628.001": {
+   "name": "Suppress Application Icon",
+   "full_name": "Hide Artifacts: Suppress Application Icon",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1628",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1628.002": {
+   "name": "User Evasion",
+   "full_name": "Hide Artifacts: User Evasion",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1628",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1628.003": {
+   "name": "Conceal Multimedia Files",
+   "full_name": "Hide Artifacts: Conceal Multimedia Files",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1628",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1629": {
+   "name": "Impair Defenses",
+   "full_name": "Impair Defenses",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1629.001": {
+   "name": "Prevent Application Removal",
+   "full_name": "Impair Defenses: Prevent Application Removal",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1629",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1629.002": {
+   "name": "Device Lockout",
+   "full_name": "Impair Defenses: Device Lockout",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1629",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1629.003": {
+   "name": "Disable or Modify Tools",
+   "full_name": "Impair Defenses: Disable or Modify Tools",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1629",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1630": {
+   "name": "Indicator Removal on Host",
+   "full_name": "Indicator Removal on Host",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1630.001": {
+   "name": "Uninstall Malicious Application",
+   "full_name": "Indicator Removal on Host: Uninstall Malicious Application",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1630",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1630.002": {
+   "name": "File Deletion",
+   "full_name": "Indicator Removal on Host: File Deletion",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1630",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1630.003": {
+   "name": "Disguise Root/Jailbreak Indicators",
+   "full_name": "Indicator Removal on Host: Disguise Root/Jailbreak Indicators",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1630",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1631": {
+   "name": "Process Injection",
+   "full_name": "Process Injection",
+   "tactics": [
+    "defense-evasion",
+    "privilege-escalation"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1631.001": {
+   "name": "Ptrace System Calls",
+   "full_name": "Process Injection: Ptrace System Calls",
+   "tactics": [
+    "defense-evasion",
+    "privilege-escalation"
+   ],
+   "subtechnique_of": "T1631",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1632": {
+   "name": "Subvert Trust Controls",
+   "full_name": "Subvert Trust Controls",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1632.001": {
+   "name": "Code Signing Policy Modification",
+   "full_name": "Subvert Trust Controls: Code Signing Policy Modification",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1632",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1633": {
+   "name": "Virtualization/Sandbox Evasion",
+   "full_name": "Virtualization/Sandbox Evasion",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1633.001": {
+   "name": "System Checks",
+   "full_name": "Virtualization/Sandbox Evasion: System Checks",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1633",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1634": {
+   "name": "Credentials from Password Store",
+   "full_name": "Credentials from Password Store",
+   "tactics": [
+    "credential-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1634.001": {
+   "name": "Keychain",
+   "full_name": "Credentials from Password Store: Keychain",
+   "tactics": [
+    "credential-access"
+   ],
+   "subtechnique_of": "T1634",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1635": {
+   "name": "Steal Application Access Token",
+   "full_name": "Steal Application Access Token",
+   "tactics": [
+    "credential-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1635.001": {
+   "name": "URI Hijacking",
+   "full_name": "Steal Application Access Token: URI Hijacking",
+   "tactics": [
+    "credential-access"
+   ],
+   "subtechnique_of": "T1635",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1636": {
+   "name": "Protected User Data",
+   "full_name": "Protected User Data",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1636.001": {
+   "name": "Calendar Entries",
+   "full_name": "Protected User Data: Calendar Entries",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": "T1636",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1636.002": {
+   "name": "Call Log",
+   "full_name": "Protected User Data: Call Log",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": "T1636",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1636.003": {
+   "name": "Contact List",
+   "full_name": "Protected User Data: Contact List",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": "T1636",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1636.004": {
+   "name": "SMS Messages",
+   "full_name": "Protected User Data: SMS Messages",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": "T1636",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1636.005": {
+   "name": "Accounts",
+   "full_name": "Protected User Data: Accounts",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": "T1636",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1637": {
+   "name": "Dynamic Resolution",
+   "full_name": "Dynamic Resolution",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1637.001": {
+   "name": "Domain Generation Algorithms",
+   "full_name": "Dynamic Resolution: Domain Generation Algorithms",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": "T1637",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1638": {
+   "name": "Adversary-in-the-Middle",
+   "full_name": "Adversary-in-the-Middle",
+   "tactics": [
+    "collection"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1639": {
+   "name": "Exfiltration Over Alternative Protocol",
+   "full_name": "Exfiltration Over Alternative Protocol",
+   "tactics": [
+    "exfiltration"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1639.001": {
+   "name": "Exfiltration Over Unencrypted Non-C2 Protocol",
+   "full_name": "Exfiltration Over Alternative Protocol: Exfiltration Over Unencrypted Non-C2 Protocol",
+   "tactics": [
+    "exfiltration"
+   ],
+   "subtechnique_of": "T1639",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1640": {
+   "name": "Account Access Removal",
+   "full_name": "Account Access Removal",
+   "tactics": [
+    "impact"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1641": {
+   "name": "Data Manipulation",
+   "full_name": "Data Manipulation",
+   "tactics": [
+    "impact"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1641.001": {
+   "name": "Transmitted Data Manipulation",
+   "full_name": "Data Manipulation: Transmitted Data Manipulation",
+   "tactics": [
+    "impact"
+   ],
+   "subtechnique_of": "T1641",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1642": {
+   "name": "Endpoint Denial of Service",
+   "full_name": "Endpoint Denial of Service",
+   "tactics": [
+    "impact"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1643": {
+   "name": "Generate Traffic from Victim",
+   "full_name": "Generate Traffic from Victim",
+   "tactics": [
+    "impact"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1644": {
+   "name": "Out of Band Data",
+   "full_name": "Out of Band Data",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1645": {
+   "name": "Compromise Client Software Binary",
+   "full_name": "Compromise Client Software Binary",
+   "tactics": [
+    "persistence"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1646": {
+   "name": "Exfiltration Over C2 Channel",
+   "full_name": "Exfiltration Over C2 Channel",
+   "tactics": [
+    "exfiltration"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1655": {
+   "name": "Masquerading",
+   "full_name": "Masquerading",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1655.001": {
+   "name": "Match Legitimate Name or Location",
+   "full_name": "Masquerading: Match Legitimate Name or Location",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": "T1655",
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1658": {
+   "name": "Exploitation for Client Execution",
+   "full_name": "Exploitation for Client Execution",
+   "tactics": [
+    "execution"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1660": {
+   "name": "Phishing",
+   "full_name": "Phishing",
+   "tactics": [
+    "initial-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1661": {
+   "name": "Application Versioning",
+   "full_name": "Application Versioning",
+   "tactics": [
+    "initial-access",
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1662": {
+   "name": "Data Destruction",
+   "full_name": "Data Destruction",
+   "tactics": [
+    "impact"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1663": {
+   "name": "Remote Access Software",
+   "full_name": "Remote Access Software",
+   "tactics": [
+    "command-and-control"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1664": {
+   "name": "Exploitation for Initial Access",
+   "full_name": "Exploitation for Initial Access",
+   "tactics": [
+    "initial-access"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1670": {
+   "name": "Virtualization Solution",
+   "full_name": "Virtualization Solution",
+   "tactics": [
+    "defense-evasion"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  },
+  "T1676": {
+   "name": "Linked Devices",
+   "full_name": "Linked Devices",
+   "tactics": [
+    "collection",
+    "persistence"
+   ],
+   "subtechnique_of": null,
+   "deprecated": false,
+   "revoked": false
+  }
+ },
+ "malware": {
+  "S0182": {
+   "name": "FinFisher",
+   "aliases": [
+    "FinSpy"
+   ],
+   "techniques": [
+    "T1404",
+    "T1429",
+    "T1430",
+    "T1636.002",
+    "T1636.004"
+   ]
+  },
+  "S0285": {
+   "name": "OldBoot",
+   "aliases": [],
+   "techniques": [
+    "T1398"
+   ]
+  },
+  "S0286": {
+   "name": "OBAD",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1629.001"
+   ]
+  },
+  "S0287": {
+   "name": "ZergHelper",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1476"
+   ]
+  },
+  "S0288": {
+   "name": "KeyRaider",
+   "aliases": [],
+   "techniques": [
+    "T1426",
+    "T1638"
+   ]
+  },
+  "S0289": {
+   "name": "Pegasus for iOS",
+   "aliases": [],
+   "techniques": [
+    "T1404",
+    "T1409",
+    "T1421",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1456",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1644",
+    "T1645",
+    "T1658",
+    "T1660",
+    "T1664"
+   ]
+  },
+  "S0290": {
+   "name": "Gooligan",
+   "aliases": [
+    "Ghost Push"
+   ],
+   "techniques": [
+    "T1404",
+    "T1533",
+    "T1643"
+   ]
+  },
+  "S0291": {
+   "name": "PJApps",
+   "aliases": [],
+   "techniques": [
+    "T1422",
+    "T1430",
+    "T1643"
+   ]
+  },
+  "S0292": {
+   "name": "AndroRAT",
+   "aliases": [],
+   "techniques": [
+    "T1422",
+    "T1429",
+    "T1430",
+    "T1512",
+    "T1582",
+    "T1616",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0293": {
+   "name": "BrainTest",
+   "aliases": [],
+   "techniques": [
+    "T1404",
+    "T1406",
+    "T1407",
+    "T1643",
+    "T1645"
+   ]
+  },
+  "S0294": {
+   "name": "ShiftyBug",
+   "aliases": [],
+   "techniques": [
+    "T1404",
+    "T1645"
+   ]
+  },
+  "S0295": {
+   "name": "RCSAndroid",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1409",
+    "T1414",
+    "T1429",
+    "T1430",
+    "T1512",
+    "T1533",
+    "T1636.004",
+    "T1644"
+   ]
+  },
+  "S0297": {
+   "name": "XcodeGhost",
+   "aliases": [],
+   "techniques": [
+    "T1414",
+    "T1417.002",
+    "T1474.001"
+   ]
+  },
+  "S0299": {
+   "name": "NotCompatible",
+   "aliases": [],
+   "techniques": [
+    "T1428"
+   ]
+  },
+  "S0300": {
+   "name": "DressCode",
+   "aliases": [],
+   "techniques": [
+    "T1428"
+   ]
+  },
+  "S0301": {
+   "name": "Dendroid",
+   "aliases": [],
+   "techniques": [
+    "T1417.002",
+    "T1429",
+    "T1512",
+    "T1533",
+    "T1582",
+    "T1633.001",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0302": {
+   "name": "Twitoor",
+   "aliases": [],
+   "techniques": [
+    "T1476",
+    "T1481.003",
+    "T1521",
+    "T1628.001"
+   ]
+  },
+  "S0303": {
+   "name": "MazarBOT",
+   "aliases": [],
+   "techniques": [
+    "T1476",
+    "T1636.004",
+    "T1643"
+   ]
+  },
+  "S0304": {
+   "name": "Android/Chuli.A",
+   "aliases": [],
+   "techniques": [
+    "T1426",
+    "T1430",
+    "T1437.001",
+    "T1476",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1644"
+   ]
+  },
+  "S0305": {
+   "name": "SpyNote RAT",
+   "aliases": [],
+   "techniques": [
+    "T1429",
+    "T1430",
+    "T1533",
+    "T1624.001",
+    "T1636.003",
+    "T1636.004"
+   ]
+  },
+  "S0306": {
+   "name": "Trojan-SMS.AndroidOS.FakeInst.a",
+   "aliases": [],
+   "techniques": [
+    "T1437.001"
+   ]
+  },
+  "S0307": {
+   "name": "Trojan-SMS.AndroidOS.Agent.ao",
+   "aliases": [],
+   "techniques": [
+    "T1437.001"
+   ]
+  },
+  "S0308": {
+   "name": "Trojan-SMS.AndroidOS.OpFake.a",
+   "aliases": [],
+   "techniques": [
+    "T1437.001"
+   ]
+  },
+  "S0309": {
+   "name": "Adups",
+   "aliases": [],
+   "techniques": [
+    "T1430",
+    "T1474.003",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004"
+   ]
+  },
+  "S0310": {
+   "name": "ANDROIDOS_ANSERVER.A",
+   "aliases": [],
+   "techniques": [
+    "T1422",
+    "T1426",
+    "T1481.001"
+   ]
+  },
+  "S0311": {
+   "name": "YiSpecter",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1409",
+    "T1418",
+    "T1422",
+    "T1424",
+    "T1426",
+    "T1437.001",
+    "T1456",
+    "T1476",
+    "T1577",
+    "T1625",
+    "T1628.001",
+    "T1632.001"
+   ]
+  },
+  "S0312": {
+   "name": "WireLurker",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1458"
+   ]
+  },
+  "S0313": {
+   "name": "RuMMS",
+   "aliases": [],
+   "techniques": [
+    "T1422",
+    "T1426",
+    "T1437.001",
+    "T1476",
+    "T1636.004"
+   ]
+  },
+  "S0314": {
+   "name": "X-Agent for Android",
+   "aliases": [],
+   "techniques": [
+    "T1430",
+    "T1655.001"
+   ]
+  },
+  "S0315": {
+   "name": "DualToy",
+   "aliases": [],
+   "techniques": [
+    "T1422",
+    "T1458"
+   ]
+  },
+  "S0316": {
+   "name": "Pegasus for Android",
+   "aliases": [
+    "Chrysaor"
+   ],
+   "techniques": [
+    "T1404",
+    "T1409",
+    "T1418",
+    "T1422",
+    "T1422.001",
+    "T1422.002",
+    "T1429",
+    "T1512",
+    "T1624.001",
+    "T1636.001",
+    "T1636.002",
+    "T1636.003",
+    "T1644",
+    "T1645"
+   ]
+  },
+  "S0318": {
+   "name": "XLoader for Android",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1422",
+    "T1426",
+    "T1429",
+    "T1476",
+    "T1481.001",
+    "T1626.001",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0319": {
+   "name": "Allwinner",
+   "aliases": [],
+   "techniques": [
+    "T1474.003"
+   ]
+  },
+  "S0320": {
+   "name": "DroidJack",
+   "aliases": [],
+   "techniques": [
+    "T1429",
+    "T1512",
+    "T1636.002",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0321": {
+   "name": "HummingWhale",
+   "aliases": [],
+   "techniques": [
+    "T1643"
+   ]
+  },
+  "S0322": {
+   "name": "HummingBad",
+   "aliases": [],
+   "techniques": [
+    "T1404",
+    "T1643"
+   ]
+  },
+  "S0323": {
+   "name": "Charger",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1430",
+    "T1636.003",
+    "T1642"
+   ]
+  },
+  "S0324": {
+   "name": "SpyDealer",
+   "aliases": [],
+   "techniques": [
+    "T1404",
+    "T1407",
+    "T1409",
+    "T1422",
+    "T1429",
+    "T1430",
+    "T1512",
+    "T1513",
+    "T1624.001",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1644",
+    "T1645"
+   ]
+  },
+  "S0325": {
+   "name": "Judy",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1643"
+   ]
+  },
+  "S0326": {
+   "name": "RedDrop",
+   "aliases": [],
+   "techniques": [
+    "T1422",
+    "T1422.001",
+    "T1422.002",
+    "T1426",
+    "T1429",
+    "T1437.001",
+    "T1476",
+    "T1544",
+    "T1643",
+    "T1646"
+   ]
+  },
+  "S0327": {
+   "name": "Skygofree",
+   "aliases": [],
+   "techniques": [
+    "T1404",
+    "T1407",
+    "T1409",
+    "T1429",
+    "T1430",
+    "T1437.001",
+    "T1512",
+    "T1644"
+   ]
+  },
+  "S0328": {
+   "name": "Stealth Mango",
+   "aliases": [],
+   "techniques": [
+    "T1418",
+    "T1422",
+    "T1429",
+    "T1430",
+    "T1456",
+    "T1474.003",
+    "T1512",
+    "T1533",
+    "T1582",
+    "T1636.001",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1644"
+   ]
+  },
+  "S0329": {
+   "name": "Tangelo",
+   "aliases": [],
+   "techniques": [
+    "T1409",
+    "T1422",
+    "T1429",
+    "T1430",
+    "T1533",
+    "T1636.002",
+    "T1636.004"
+   ]
+  },
+  "S0399": {
+   "name": "Pallas",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1409",
+    "T1417.002",
+    "T1418",
+    "T1421",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1476",
+    "T1512",
+    "T1630.002",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1646"
+   ]
+  },
+  "S0403": {
+   "name": "Riltok",
+   "aliases": [],
+   "techniques": [
+    "T1417.002",
+    "T1418",
+    "T1422",
+    "T1426",
+    "T1437.001",
+    "T1476",
+    "T1516",
+    "T1636.003",
+    "T1636.004"
+   ]
+  },
+  "S0405": {
+   "name": "Exodus",
+   "aliases": [
+    "Exodus One",
+    "Exodus Two"
+   ],
+   "techniques": [
+    "T1404",
+    "T1407",
+    "T1409",
+    "T1418",
+    "T1421",
+    "T1422",
+    "T1422.001",
+    "T1429",
+    "T1430",
+    "T1437.001",
+    "T1509",
+    "T1512",
+    "T1513",
+    "T1532",
+    "T1533",
+    "T1636.001",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004"
+   ]
+  },
+  "S0406": {
+   "name": "Gustuff",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1406.002",
+    "T1417.001",
+    "T1417.002",
+    "T1418.001",
+    "T1422",
+    "T1426",
+    "T1437.001",
+    "T1476",
+    "T1516",
+    "T1533",
+    "T1628.001",
+    "T1629.001",
+    "T1636.003",
+    "T1636.004",
+    "T1644"
+   ]
+  },
+  "S0407": {
+   "name": "Monokle",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1417.001",
+    "T1418",
+    "T1421",
+    "T1422",
+    "T1422.001",
+    "T1422.002",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1512",
+    "T1513",
+    "T1533",
+    "T1544",
+    "T1616",
+    "T1617",
+    "T1630.002",
+    "T1636.001",
+    "T1636.002",
+    "T1636.003",
+    "T1638",
+    "T1640",
+    "T1644",
+    "T1645"
+   ]
+  },
+  "S0411": {
+   "name": "Rotexy",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1417.002",
+    "T1418",
+    "T1422",
+    "T1424",
+    "T1426",
+    "T1437.001",
+    "T1476",
+    "T1521.001",
+    "T1582",
+    "T1628.001",
+    "T1629.002",
+    "T1633.001",
+    "T1636.003",
+    "T1636.004",
+    "T1637.001",
+    "T1644"
+   ]
+  },
+  "S0418": {
+   "name": "ViceLeaker",
+   "aliases": [
+    "Triout"
+   ],
+   "techniques": [
+    "T1418",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1437.001",
+    "T1476",
+    "T1512",
+    "T1533",
+    "T1544",
+    "T1628.001",
+    "T1630.002",
+    "T1636.002",
+    "T1636.004",
+    "T1646",
+    "T1655.001"
+   ]
+  },
+  "S0419": {
+   "name": "SimBad",
+   "aliases": [],
+   "techniques": [
+    "T1476",
+    "T1624.001",
+    "T1628.001",
+    "T1643",
+    "T1655.001"
+   ]
+  },
+  "S0420": {
+   "name": "Dvmap",
+   "aliases": [],
+   "techniques": [
+    "T1404",
+    "T1406",
+    "T1407",
+    "T1426",
+    "T1625.001",
+    "T1629.003",
+    "T1632.001"
+   ]
+  },
+  "S0421": {
+   "name": "GolfSpy",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1414",
+    "T1418",
+    "T1424",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1476",
+    "T1512",
+    "T1513",
+    "T1532",
+    "T1533",
+    "T1624.001",
+    "T1630.002",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1646"
+   ]
+  },
+  "S0422": {
+   "name": "Anubis",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1417.001",
+    "T1417.002",
+    "T1418",
+    "T1424",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1453",
+    "T1471",
+    "T1476",
+    "T1481.001",
+    "T1513",
+    "T1532",
+    "T1533",
+    "T1582",
+    "T1616",
+    "T1629.001",
+    "T1629.003",
+    "T1633.001",
+    "T1636.003",
+    "T1655.001"
+   ]
+  },
+  "S0423": {
+   "name": "Ginp",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1417.002",
+    "T1418",
+    "T1513",
+    "T1516",
+    "T1533",
+    "T1582",
+    "T1628.001",
+    "T1633.001",
+    "T1636.003",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0424": {
+   "name": "Triada",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1418",
+    "T1474.003",
+    "T1532",
+    "T1631.001",
+    "T1636.004",
+    "T1643",
+    "T1646"
+   ]
+  },
+  "S0425": {
+   "name": "Corona Updates",
+   "aliases": [
+    "Concipit1248",
+    "Wabi Music"
+   ],
+   "techniques": [
+    "T1422",
+    "T1422.001",
+    "T1422.002",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1437.001",
+    "T1512",
+    "T1517",
+    "T1533",
+    "T1582",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1639.001"
+   ]
+  },
+  "S0426": {
+   "name": "Concipit1248",
+   "aliases": [
+    "Corona Updates"
+   ],
+   "techniques": [
+    "T1437.001",
+    "T1512",
+    "T1533"
+   ]
+  },
+  "S0427": {
+   "name": "TrickMo",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1418",
+    "T1422",
+    "T1422.001",
+    "T1422.002",
+    "T1426",
+    "T1437.001",
+    "T1513",
+    "T1516",
+    "T1533",
+    "T1582",
+    "T1624.001",
+    "T1629.002",
+    "T1630.001",
+    "T1633.001",
+    "T1636.004",
+    "T1644"
+   ]
+  },
+  "S0432": {
+   "name": "Bread",
+   "aliases": [
+    "Joker"
+   ],
+   "techniques": [
+    "T1406",
+    "T1406.002",
+    "T1407",
+    "T1422",
+    "T1437.001",
+    "T1476",
+    "T1517",
+    "T1575",
+    "T1636.004",
+    "T1643"
+   ]
+  },
+  "S0440": {
+   "name": "Agent Smith",
+   "aliases": [],
+   "techniques": [
+    "T1404",
+    "T1406.001",
+    "T1418",
+    "T1424",
+    "T1476",
+    "T1577",
+    "T1628.001",
+    "T1630.002",
+    "T1643",
+    "T1655.001"
+   ]
+  },
+  "S0463": {
+   "name": "INSOMNIA",
+   "aliases": [],
+   "techniques": [
+    "T1404",
+    "T1406",
+    "T1418",
+    "T1422",
+    "T1422.001",
+    "T1422.002",
+    "T1426",
+    "T1430",
+    "T1437.001",
+    "T1456",
+    "T1509",
+    "T1533",
+    "T1631.001",
+    "T1634.001",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004"
+   ]
+  },
+  "S0478": {
+   "name": "EventBot",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1407",
+    "T1417.001",
+    "T1417.002",
+    "T1418",
+    "T1422",
+    "T1422.001",
+    "T1426",
+    "T1437.001",
+    "T1513",
+    "T1521.001",
+    "T1624.001",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0479": {
+   "name": "DEFENSOR ID",
+   "aliases": [],
+   "techniques": [
+    "T1418",
+    "T1437.001",
+    "T1513",
+    "T1516",
+    "T1624.001"
+   ]
+  },
+  "S0480": {
+   "name": "Cerberus",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1407",
+    "T1417.001",
+    "T1417.002",
+    "T1418",
+    "T1426",
+    "T1430",
+    "T1437.001",
+    "T1476",
+    "T1509",
+    "T1516",
+    "T1582",
+    "T1628.001",
+    "T1629.003",
+    "T1630.001",
+    "T1633.001",
+    "T1636.003",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0485": {
+   "name": "Mandrake",
+   "aliases": [
+    "briar",
+    "darkmatter",
+    "oxide",
+    "ricinus"
+   ],
+   "techniques": [
+    "T1406",
+    "T1407",
+    "T1409",
+    "T1417.002",
+    "T1418",
+    "T1426",
+    "T1430",
+    "T1481.002",
+    "T1509",
+    "T1513",
+    "T1516",
+    "T1517",
+    "T1541",
+    "T1544",
+    "T1582",
+    "T1628.001",
+    "T1629.001",
+    "T1629.003",
+    "T1630.002",
+    "T1632.001",
+    "T1633.001",
+    "T1636.003",
+    "T1636.004",
+    "T1637.001",
+    "T1655.001"
+   ]
+  },
+  "S0489": {
+   "name": "WolfRAT",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1407",
+    "T1418",
+    "T1422",
+    "T1424",
+    "T1429",
+    "T1512",
+    "T1513",
+    "T1517",
+    "T1533",
+    "T1582",
+    "T1630.002",
+    "T1633.001",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0490": {
+   "name": "XLoader for iOS",
+   "aliases": [],
+   "techniques": [
+    "T1422",
+    "T1426",
+    "T1476",
+    "T1632.001",
+    "T1646"
+   ]
+  },
+  "S0491": {
+   "name": "StrongPity",
+   "aliases": [],
+   "techniques": [
+    "T1476"
+   ]
+  },
+  "S0494": {
+   "name": "Zen",
+   "aliases": [],
+   "techniques": [
+    "T1404",
+    "T1406",
+    "T1407",
+    "T1516",
+    "T1625.001",
+    "T1629.003",
+    "T1631.001",
+    "T1643"
+   ]
+  },
+  "S0505": {
+   "name": "Desert Scorpion",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1409",
+    "T1418",
+    "T1420",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1512",
+    "T1532",
+    "T1533",
+    "T1582",
+    "T1628.001",
+    "T1630.002",
+    "T1632.001",
+    "T1636.003",
+    "T1636.004",
+    "T1644"
+   ]
+  },
+  "S0506": {
+   "name": "ViperRAT",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1421",
+    "T1422",
+    "T1422.001",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1476",
+    "T1512",
+    "T1533",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0507": {
+   "name": "eSurv",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1476",
+    "T1521.002",
+    "T1521.003",
+    "T1533",
+    "T1627.001",
+    "T1636.003",
+    "T1646"
+   ]
+  },
+  "S0509": {
+   "name": "FakeSpy",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1409",
+    "T1418",
+    "T1421",
+    "T1422",
+    "T1422.001",
+    "T1426",
+    "T1437.001",
+    "T1476",
+    "T1582",
+    "T1624.001",
+    "T1628.001",
+    "T1633.001",
+    "T1636.003",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0522": {
+   "name": "Exobot",
+   "aliases": [],
+   "techniques": [
+    "T1417.001",
+    "T1417.002",
+    "T1418.001",
+    "T1422",
+    "T1422.001",
+    "T1426",
+    "T1437.001",
+    "T1476",
+    "T1582",
+    "T1604",
+    "T1624.001",
+    "T1626.001",
+    "T1636.003",
+    "T1636.004",
+    "T1642",
+    "T1655.001"
+   ]
+  },
+  "S0524": {
+   "name": "AndroidOS/MalLocker.B",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1476",
+    "T1624.001",
+    "T1629.002",
+    "T1655.001"
+   ]
+  },
+  "S0525": {
+   "name": "Android/AdDisplay.Ashas",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1418",
+    "T1426",
+    "T1437.001",
+    "T1624.001",
+    "T1628.001",
+    "T1633.001",
+    "T1643",
+    "T1655.001"
+   ]
+  },
+  "S0529": {
+   "name": "CarbonSteal",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1407",
+    "T1409",
+    "T1418",
+    "T1420",
+    "T1422",
+    "T1422.001",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1521.002",
+    "T1575",
+    "T1616",
+    "T1630.002",
+    "T1636.004",
+    "T1644",
+    "T1655.001"
+   ]
+  },
+  "S0535": {
+   "name": "Golden Cup",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1418",
+    "T1420",
+    "T1422",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1437.001",
+    "T1512",
+    "T1532",
+    "T1533",
+    "T1636.003",
+    "T1636.004"
+   ]
+  },
+  "S0536": {
+   "name": "GPlayed",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1407",
+    "T1417.002",
+    "T1418",
+    "T1422",
+    "T1426",
+    "T1430",
+    "T1437.001",
+    "T1533",
+    "T1582",
+    "T1603",
+    "T1624.001",
+    "T1626.001",
+    "T1630.002",
+    "T1636.003",
+    "T1636.004",
+    "T1642",
+    "T1655.001"
+   ]
+  },
+  "S0539": {
+   "name": "Red Alert 2.0",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1407",
+    "T1417.002",
+    "T1418",
+    "T1437.001",
+    "T1476",
+    "T1481.001",
+    "T1509",
+    "T1582",
+    "T1626.001",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0540": {
+   "name": "Asacub",
+   "aliases": [
+    "Trojan-SMS.AndroidOS.Smaps"
+   ],
+   "techniques": [
+    "T1406",
+    "T1422",
+    "T1422.001",
+    "T1426",
+    "T1437.001",
+    "T1476",
+    "T1532",
+    "T1575",
+    "T1582",
+    "T1626.001",
+    "T1636.003",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0544": {
+   "name": "HenBox",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1407",
+    "T1418",
+    "T1424",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1476",
+    "T1512",
+    "T1533",
+    "T1575",
+    "T1623.001",
+    "T1624.001",
+    "T1633.001",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0545": {
+   "name": "TERRACOTTA",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1407",
+    "T1417.002",
+    "T1418",
+    "T1422",
+    "T1422.001",
+    "T1481.002",
+    "T1516",
+    "T1541",
+    "T1575",
+    "T1582",
+    "T1603",
+    "T1624.001",
+    "T1633.001",
+    "T1643"
+   ]
+  },
+  "S0549": {
+   "name": "SilkBean",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1407",
+    "T1420",
+    "T1430",
+    "T1437.001",
+    "T1512",
+    "T1521.002",
+    "T1533",
+    "T1582",
+    "T1630.002",
+    "T1632.001",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0550": {
+   "name": "DoubleAgent",
+   "aliases": [],
+   "techniques": [
+    "T1404",
+    "T1406",
+    "T1407",
+    "T1409",
+    "T1418",
+    "T1420",
+    "T1426",
+    "T1429",
+    "T1437",
+    "T1533",
+    "T1623.001",
+    "T1628.001",
+    "T1630.002",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1645",
+    "T1655.001"
+   ]
+  },
+  "S0551": {
+   "name": "GoldenEagle",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1409",
+    "T1418",
+    "T1420",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1437.001",
+    "T1512",
+    "T1513",
+    "T1533",
+    "T1582",
+    "T1632.001",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1646",
+    "T1655.001"
+   ]
+  },
+  "S0555": {
+   "name": "CHEMISTGAMES",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1407",
+    "T1426",
+    "T1430",
+    "T1437.001",
+    "T1474.003",
+    "T1521.002",
+    "T1533",
+    "T1575",
+    "T1623.001",
+    "T1655.001"
+   ]
+  },
+  "S0558": {
+   "name": "Tiktok Pro",
+   "aliases": [],
+   "techniques": [
+    "T1417.002",
+    "T1418",
+    "T1420",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1476",
+    "T1512",
+    "T1513",
+    "T1533",
+    "T1541",
+    "T1582",
+    "T1603",
+    "T1623.001",
+    "T1624.001",
+    "T1628.001",
+    "T1630.002",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0577": {
+   "name": "FrozenCell",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1409",
+    "T1420",
+    "T1422",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1532",
+    "T1533",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S0602": {
+   "name": "Circles",
+   "aliases": [],
+   "techniques": [
+    "T1430.002"
+   ]
+  },
+  "S0655": {
+   "name": "BusyGasper",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1409",
+    "T1417.001",
+    "T1429",
+    "T1430",
+    "T1481.002",
+    "T1512",
+    "T1513",
+    "T1533",
+    "T1582",
+    "T1616",
+    "T1623.001",
+    "T1628.001",
+    "T1628.002",
+    "T1636.004",
+    "T1639.001",
+    "T1644",
+    "T1645"
+   ]
+  },
+  "S1054": {
+   "name": "Drinik",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1417.001",
+    "T1417.002",
+    "T1437",
+    "T1513",
+    "T1533",
+    "T1541",
+    "T1582",
+    "T1616",
+    "T1628.001",
+    "T1629.003",
+    "T1636.002",
+    "T1636.004",
+    "T1646"
+   ]
+  },
+  "S1055": {
+   "name": "SharkBot",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1407",
+    "T1417.001",
+    "T1417.002",
+    "T1424",
+    "T1437.001",
+    "T1516",
+    "T1517",
+    "T1521.001",
+    "T1521.002",
+    "T1544",
+    "T1582",
+    "T1630.001",
+    "T1636.004",
+    "T1637.001",
+    "T1644",
+    "T1646",
+    "T1661"
+   ]
+  },
+  "S1056": {
+   "name": "TianySpy",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1417.002",
+    "T1422",
+    "T1422.001",
+    "T1422.002",
+    "T1426",
+    "T1623",
+    "T1632.001",
+    "T1639"
+   ]
+  },
+  "S1061": {
+   "name": "AbstractEmu",
+   "aliases": [],
+   "techniques": [
+    "T1404",
+    "T1406",
+    "T1407",
+    "T1418",
+    "T1422",
+    "T1422.001",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1437.001",
+    "T1512",
+    "T1517",
+    "T1533",
+    "T1544",
+    "T1623.001",
+    "T1626.001",
+    "T1629.003",
+    "T1633",
+    "T1633.001",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1646"
+   ]
+  },
+  "S1062": {
+   "name": "S.O.V.A.",
+   "aliases": [],
+   "techniques": [
+    "T1406.002",
+    "T1409",
+    "T1417.001",
+    "T1417.002",
+    "T1418",
+    "T1426",
+    "T1437.001",
+    "T1464",
+    "T1471",
+    "T1513",
+    "T1516",
+    "T1517",
+    "T1582",
+    "T1628.001",
+    "T1629.001",
+    "T1630.001",
+    "T1636.004",
+    "T1638",
+    "T1641.001"
+   ]
+  },
+  "S1067": {
+   "name": "FluBot",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1409",
+    "T1417.002",
+    "T1437.001",
+    "T1453",
+    "T1517",
+    "T1521.002",
+    "T1582",
+    "T1604",
+    "T1628.002",
+    "T1629.001",
+    "T1629.003",
+    "T1636.003",
+    "T1636.004",
+    "T1637.001",
+    "T1646",
+    "T1660"
+   ]
+  },
+  "S1069": {
+   "name": "TangleBot",
+   "aliases": [],
+   "techniques": [
+    "T1417.002",
+    "T1418",
+    "T1429",
+    "T1430",
+    "T1512",
+    "T1513",
+    "T1533",
+    "T1582",
+    "T1616",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004"
+   ]
+  },
+  "S1077": {
+   "name": "Hornbill",
+   "aliases": [],
+   "techniques": [
+    "T1409",
+    "T1418",
+    "T1420",
+    "T1422",
+    "T1422.001",
+    "T1422.002",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1437.001",
+    "T1512",
+    "T1513",
+    "T1517",
+    "T1533",
+    "T1626.001",
+    "T1628.002",
+    "T1630.002",
+    "T1636.002",
+    "T1636.003",
+    "T1646",
+    "T1655.001"
+   ]
+  },
+  "S1079": {
+   "name": "BOULDSPY",
+   "aliases": [],
+   "techniques": [
+    "T1398",
+    "T1407",
+    "T1409",
+    "T1414",
+    "T1417.001",
+    "T1418",
+    "T1422",
+    "T1422.001",
+    "T1422.002",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1437.001",
+    "T1512",
+    "T1513",
+    "T1532",
+    "T1533",
+    "T1577",
+    "T1624",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1644",
+    "T1646",
+    "T1655.001"
+   ]
+  },
+  "S1080": {
+   "name": "Fakecalls",
+   "aliases": [],
+   "techniques": [
+    "T1429",
+    "T1430",
+    "T1512",
+    "T1533",
+    "T1616",
+    "T1630.002",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1646",
+    "T1655.001"
+   ]
+  },
+  "S1082": {
+   "name": "Sunbird",
+   "aliases": [],
+   "techniques": [
+    "T1409",
+    "T1418",
+    "T1422",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1512",
+    "T1513",
+    "T1532",
+    "T1533",
+    "T1544",
+    "T1623.001",
+    "T1626.001",
+    "T1636.001",
+    "T1636.002",
+    "T1636.003",
+    "T1646"
+   ]
+  },
+  "S1083": {
+   "name": "Chameleon",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1417.001",
+    "T1417.002",
+    "T1418",
+    "T1426",
+    "T1430",
+    "T1437",
+    "T1437.001",
+    "T1453",
+    "T1461",
+    "T1509",
+    "T1513",
+    "T1517",
+    "T1533",
+    "T1544",
+    "T1575",
+    "T1603",
+    "T1616",
+    "T1629.001",
+    "T1629.003",
+    "T1630",
+    "T1633.001",
+    "T1636.004",
+    "T1646",
+    "T1655.001",
+    "T1660"
+   ]
+  },
+  "S1092": {
+   "name": "Escobar",
+   "aliases": [],
+   "techniques": [
+    "T1409",
+    "T1417.001",
+    "T1417.002",
+    "T1420",
+    "T1429",
+    "T1430",
+    "T1461",
+    "T1512",
+    "T1517",
+    "T1533",
+    "T1582",
+    "T1616",
+    "T1630.001",
+    "T1636.002",
+    "T1636.004",
+    "T1663"
+   ]
+  },
+  "S1093": {
+   "name": "FlyTrap",
+   "aliases": [],
+   "techniques": [
+    "T1409",
+    "T1417.002",
+    "T1422",
+    "T1422.001",
+    "T1430",
+    "T1437.001",
+    "T1646"
+   ]
+  },
+  "S1094": {
+   "name": "BRATA",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1406.002",
+    "T1407",
+    "T1417.001",
+    "T1417.002",
+    "T1418.001",
+    "T1426",
+    "T1430",
+    "T1437.001",
+    "T1461",
+    "T1513",
+    "T1516",
+    "T1532",
+    "T1533",
+    "T1616",
+    "T1627.001",
+    "T1628.002",
+    "T1629.003",
+    "T1630.001",
+    "T1633.001",
+    "T1641.001",
+    "T1646",
+    "T1655.001",
+    "T1660",
+    "T1662",
+    "T1663",
+    "T1664"
+   ]
+  },
+  "S1095": {
+   "name": "AhRat",
+   "aliases": [],
+   "techniques": [
+    "T1398",
+    "T1406",
+    "T1420",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1437.001",
+    "T1513",
+    "T1521",
+    "T1533",
+    "T1582",
+    "T1624.001",
+    "T1636.002",
+    "T1636.003",
+    "T1646"
+   ]
+  },
+  "S1103": {
+   "name": "FlixOnline",
+   "aliases": [],
+   "techniques": [
+    "T1409",
+    "T1417.002",
+    "T1517",
+    "T1624.001",
+    "T1628.001",
+    "T1643"
+   ]
+  },
+  "S1126": {
+   "name": "Phenakite",
+   "aliases": [],
+   "techniques": [
+    "T1404",
+    "T1417",
+    "T1426",
+    "T1429",
+    "T1512",
+    "T1533",
+    "T1544",
+    "T1636.003",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S1128": {
+   "name": "HilalRAT",
+   "aliases": [],
+   "techniques": [
+    "T1409",
+    "T1429",
+    "T1430",
+    "T1512",
+    "T1636.003",
+    "T1636.004"
+   ]
+  },
+  "S1185": {
+   "name": "LightSpy",
+   "aliases": [],
+   "techniques": [
+    "T1398",
+    "T1404",
+    "T1406",
+    "T1409",
+    "T1418",
+    "T1421",
+    "T1422",
+    "T1422.002",
+    "T1423",
+    "T1424",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1437.001",
+    "T1456",
+    "T1509",
+    "T1512",
+    "T1513",
+    "T1532",
+    "T1533",
+    "T1544",
+    "T1575",
+    "T1582",
+    "T1623",
+    "T1631",
+    "T1634.001",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1642",
+    "T1646",
+    "T1655",
+    "T1658",
+    "T1660",
+    "T1662"
+   ]
+  },
+  "S1195": {
+   "name": "SpyC23",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1429",
+    "T1430",
+    "T1437.001",
+    "T1512",
+    "T1513",
+    "T1517",
+    "T1533",
+    "T1544",
+    "T1582",
+    "T1616",
+    "T1624.001",
+    "T1628.001",
+    "T1628.002",
+    "T1629.003",
+    "T1633",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1644",
+    "T1655.001"
+   ]
+  },
+  "S1208": {
+   "name": "FjordPhantom",
+   "aliases": [],
+   "techniques": [
+    "T1617",
+    "T1631",
+    "T1655",
+    "T1660",
+    "T1670"
+   ]
+  },
+  "S1214": {
+   "name": "Android/SpyAgent",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1422",
+    "T1481",
+    "T1481.001",
+    "T1616",
+    "T1629.003",
+    "T1636.004",
+    "T1655.001"
+   ]
+  },
+  "S1215": {
+   "name": "Binary Validator",
+   "aliases": [],
+   "techniques": [
+    "T1418",
+    "T1422",
+    "T1424",
+    "T1533",
+    "T1627",
+    "T1630.002",
+    "T1646"
+   ]
+  },
+  "S1216": {
+   "name": "TriangleDB",
+   "aliases": [],
+   "techniques": [
+    "T1418",
+    "T1420",
+    "T1422",
+    "T1424",
+    "T1430",
+    "T1521.001",
+    "T1521.002",
+    "T1533",
+    "T1544",
+    "T1630.002",
+    "T1634.001",
+    "T1644"
+   ]
+  },
+  "S1225": {
+   "name": "CherryBlos",
+   "aliases": [],
+   "techniques": [
+    "T1406.002",
+    "T1417",
+    "T1418",
+    "T1420",
+    "T1424",
+    "T1437.001",
+    "T1453",
+    "T1541",
+    "T1544",
+    "T1629",
+    "T1646",
+    "T1655",
+    "T1660"
+   ]
+  },
+  "S1231": {
+   "name": "GodFather",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1417",
+    "T1417.001",
+    "T1418",
+    "T1422",
+    "T1426",
+    "T1429",
+    "T1437.001",
+    "T1453",
+    "T1516",
+    "T1544",
+    "T1575",
+    "T1582",
+    "T1603",
+    "T1616",
+    "T1617",
+    "T1624",
+    "T1629",
+    "T1629.001",
+    "T1630",
+    "T1636.003",
+    "T1636.004",
+    "T1646",
+    "T1655.001",
+    "T1660",
+    "T1670"
+   ]
+  },
+  "S1241": {
+   "name": "RatMilad",
+   "aliases": [],
+   "techniques": [
+    "T1407",
+    "T1414",
+    "T1418",
+    "T1420",
+    "T1422",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1437.001",
+    "T1512",
+    "T1533",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1636.005",
+    "T1646",
+    "T1660",
+    "T1662"
+   ]
+  },
+  "S1243": {
+   "name": "DCHSpy",
+   "aliases": [],
+   "techniques": [
+    "T1409",
+    "T1429",
+    "T1430",
+    "T1437",
+    "T1512",
+    "T1532",
+    "T1533",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1636.005",
+    "T1655.001"
+   ]
+  },
+  "S9004": {
+   "name": "Crocodilus",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1406.002",
+    "T1407",
+    "T1417.001",
+    "T1417.002",
+    "T1418",
+    "T1437.001",
+    "T1453",
+    "T1512",
+    "T1513",
+    "T1516",
+    "T1582",
+    "T1616",
+    "T1626.001",
+    "T1628.002",
+    "T1629.001",
+    "T1630.001",
+    "T1636.003",
+    "T1636.004",
+    "T1646",
+    "T1655"
+   ]
+  },
+  "S9005": {
+   "name": "DocSwap",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1417.001",
+    "T1418",
+    "T1420",
+    "T1422",
+    "T1422.002",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1437.001",
+    "T1453",
+    "T1512",
+    "T1533",
+    "T1541",
+    "T1544",
+    "T1575",
+    "T1616",
+    "T1624.001",
+    "T1627",
+    "T1630.002",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1636.005",
+    "T1646",
+    "T1655.001",
+    "T1660"
+   ]
+  },
+  "S9006": {
+   "name": "VajraSpy",
+   "aliases": [],
+   "techniques": [
+    "T1409",
+    "T1417.001",
+    "T1418",
+    "T1420",
+    "T1422.002",
+    "T1426",
+    "T1429",
+    "T1430",
+    "T1453",
+    "T1461",
+    "T1481.002",
+    "T1512",
+    "T1517",
+    "T1533",
+    "T1616",
+    "T1636.002",
+    "T1636.003",
+    "T1636.004",
+    "T1636.005",
+    "T1639.001",
+    "T1646",
+    "T1655",
+    "T1660"
+   ]
+  },
+  "S9030": {
+   "name": "SameCoin",
+   "aliases": [],
+   "techniques": [
+    "T1420",
+    "T1662"
+   ]
+  },
+  "S9040": {
+   "name": "NGate",
+   "aliases": [],
+   "techniques": [
+    "T1406",
+    "T1417.002",
+    "T1421",
+    "T1437",
+    "T1437.001",
+    "T1476",
+    "T1623",
+    "T1644",
+    "T1646",
+    "T1655.001",
+    "T1660"
+   ]
+  }
+ }
+}

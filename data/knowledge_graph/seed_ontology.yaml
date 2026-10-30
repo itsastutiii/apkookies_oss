@@ -1,0 +1,81 @@
+# Seed ontology for the context-aware knowledge graph (in memory; Neo4j is future work).
+#
+# Category edges (NORMAL_FOR / ANOMALOUS_FOR) must be GROUNDED: every edge has a
+# `source:` (a platform policy, or later a data-derived rate). Hand-written edges
+# without one were removed in Oct 2026: e.g. "SMS / camera+mic+location / overlay
+# are anomalous for Banking" fired on 7.7% / 26.7% / 10.2% of CICMalDroid's benign
+# apps (ml/results/benign_firing_rates.md), while Indian bank apps legitimately use
+# SMS (OTP auto-read, UPI device binding) and camera/mic/location (video KYC).
+# The loader (backend/scoring/knowledge_graph.py) rejects an edge without a source.
+#
+# The KG's score bonus is EXPERIMENTAL and OFF by default (config/thresholds.yaml
+# kg_context_boost); the graph stays in reports as context and explanation
+# (capabilities, MITRE techniques).
+# Current state / planned: edges derived from data (per-category
+# permission rates in AndroZoo / Play metadata) instead of only policy text.
+node_types: [Permission, Capability, AppCategory, ThreatIntent, MITRETechnique]
+
+edge_types:
+  - ENABLES          # Permission(s) -> Capability
+  - NORMAL_FOR       # Capability -> AppCategory (expected)
+  - ANOMALOUS_FOR    # Capability -> AppCategory (red flag)
+  - MAPS_TO_MITRE    # Capability/ThreatIntent -> MITRETechnique
+  - INDICATES        # Capability -> ThreatIntent
+
+permissions:
+  - android.permission.CAMERA
+  - android.permission.RECORD_AUDIO
+  - android.permission.ACCESS_FINE_LOCATION
+  - android.permission.READ_SMS
+  - android.permission.RECEIVE_SMS
+  - android.permission.SEND_SMS
+  - android.permission.SYSTEM_ALERT_WINDOW
+  - android.permission.BIND_ACCESSIBILITY_SERVICE
+  - android.permission.INTERNET
+  - android.permission.READ_CONTACTS
+  - android.permission.REQUEST_INSTALL_PACKAGES
+
+app_categories: [Banking, SocialMedia, Game, Wallpaper, Productivity, Communication]
+
+capabilities:
+  RemoteSurveillance:
+    enabled_by: [android.permission.CAMERA, android.permission.RECORD_AUDIO, android.permission.ACCESS_FINE_LOCATION]
+    # No category edges: camera/mic/location are normal for many categories (incl.
+    # bank video KYC) and no policy marks them anomalous for any of ours.
+    normal_for: []
+    anomalous_for: []
+    indicates: Spyware
+    mitre: [T1512, T1429, T1430]     # Video Capture, Audio Capture, Location Tracking
+
+  SmsInterception:
+    enabled_by: [android.permission.READ_SMS, android.permission.RECEIVE_SMS]
+    normal_for:
+      - category: Communication
+        source: &play_sms "Google Play policy 'Use of SMS or Call Log permission groups' (https://support.google.com/googleplay/android-developer/answer/10208820): only the default SMS/Phone handler, or a listed exception, may request these. Link written from memory; verify."
+    anomalous_for:
+      # Not Banking: bank/UPI apps read SMS for OTPs and send SMS for UPI device binding.
+      - {category: Game, source: *play_sms}
+      - {category: Wallpaper, source: *play_sms}
+    indicates: OtpTheft
+    mitre: [T1636.004, T1582]         # Protected User Data: SMS, SMS Control
+
+  OverlayAttack:
+    enabled_by: [android.permission.SYSTEM_ALERT_WINDOW]
+    # No category edges: no policy source, and SYSTEM_ALERT_WINDOW is requested by
+    # 10.2% of CICMalDroid's benign apps.
+    normal_for: []
+    anomalous_for: []
+    indicates: CredentialPhishing
+    mitre: [T1516, T1417.002]         # Input Injection, GUI overlay/Credential steal
+
+  AccessibilityAbuse:
+    enabled_by: [android.permission.BIND_ACCESSIBILITY_SERVICE]
+    normal_for: []
+    anomalous_for:
+      - {category: Banking, source: &play_a11y "Google Play AccessibilityService API policy (https://support.google.com/googleplay/android-developer/answer/10964491): only apps that help people with disabilities, or listed exceptions (e.g. password managers, automation), may use it. Benign firing 0.6% on CICMalDroid."}
+      - {category: Game, source: *play_a11y}
+      - {category: Wallpaper, source: *play_a11y}
+    indicates: RemoteControl
+    mitre: [T1453, T1417.001]
+
+threat_intents: [Spyware, OtpTheft, CredentialPhishing, RemoteControl]

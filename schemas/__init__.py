@@ -1,0 +1,22 @@
+"""Shared schema package. Import Report models from here."""
+from schemas.report import (  # noqa: F401
+    SCHEMA_VERSION,
+    Report,
+    InputInfo,
+    Hashes,
+    Verdict,
+    Risk,
+    StaticFindings,
+    DynamicFindings,
+    ThreatIntel,
+    MitreTechnique,
+    Evidence,
+    Explanation,
+    Recommendation,
+    Severity,
+    VerdictLabel,
+    InputType,
+    Touchpoint,
+    Stage,
+    RecommendationAction,
+)

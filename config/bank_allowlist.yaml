@@ -1,0 +1,27 @@
+# Genuine Indian bank apps and their REAL signing certificates.
+#
+# A sample that uses a listed PACKAGE name but a different certificate is a
+# bank impersonator (rule R004, hard override, score floor 0.90 = block).
+# A sample that only shares a listed APP NAME (different package, different
+# certificate) is a possible look-alike (rule R004B, floor 0.40 = warn; the
+# sandbox can still be triggered). A matching certificate is reported as
+# "genuine" (it does NOT lower the score). Entries without a cert_sha256 are ignored.
+#
+# How to collect each entry: docs/BANK_ALLOWLIST.md. Only add certificates taken
+# from the official app (Play Store install), never from a forwarded APK.
+#
+# cert_sha256: SHA-256 of the signing certificate, hex, colons optional
+#              (apksigner prints it as "certificate SHA-256 digest").
+
+banks: []
+
+# Example shape (NOT real data; fill in from the official apps):
+#
+# banks:
+#   - bank: "Bank of India"
+#     packages: ["com.example.boi.app"]
+#     app_names: ["BOI Mobile"]
+#     cert_sha256:
+#       - "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+#     source: "apksigner verify --print-certs on Play Store install, app version X.Y, 2026-11-01"
+#     collected_by: "<your name>"

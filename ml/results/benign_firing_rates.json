@@ -1,0 +1,120 @@
+{
+  "n": {
+    "malicious": 9803,
+    "benign": 1795
+  },
+  "rules": {
+    "malicious": {
+      "None": {},
+      "Banking": {
+        "R001_SMS_INTERCEPT_NONCOMM": {
+          "apps": 6645,
+          "rate": 0.6779
+        }
+      }
+    },
+    "benign": {
+      "None": {},
+      "Banking": {
+        "R001_SMS_INTERCEPT_NONCOMM": {
+          "apps": 138,
+          "rate": 0.0769
+        }
+      }
+    }
+  },
+  "kg_capabilities": {
+    "malicious": {
+      "AccessibilityAbuse": {
+        "apps": 104,
+        "rate": 0.0106
+      },
+      "OverlayAttack": {
+        "apps": 2724,
+        "rate": 0.2779
+      },
+      "RemoteSurveillance": {
+        "apps": 1206,
+        "rate": 0.123
+      },
+      "SmsInterception": {
+        "apps": 6716,
+        "rate": 0.6851
+      }
+    },
+    "benign": {
+      "AccessibilityAbuse": {
+        "apps": 11,
+        "rate": 0.0061
+      },
+      "OverlayAttack": {
+        "apps": 183,
+        "rate": 0.1019
+      },
+      "RemoteSurveillance": {
+        "apps": 480,
+        "rate": 0.2674
+      },
+      "SmsInterception": {
+        "apps": 138,
+        "rate": 0.0769
+      }
+    }
+  },
+  "kg_edges": {
+    "SmsInterception ANOMALOUS_FOR Game": {
+      "benign_rate_if_in_category": 0.0769,
+      "source": "Google Play policy 'Use of SMS or Call Log permission groups' (https://support.google.com/googleplay/android-developer/answer/10208820): only the default SMS/Phone handler, or a listed exception, may request these. Link written from memory; verify."
+    },
+    "SmsInterception ANOMALOUS_FOR Wallpaper": {
+      "benign_rate_if_in_category": 0.0769,
+      "source": "Google Play policy 'Use of SMS or Call Log permission groups' (https://support.google.com/googleplay/android-developer/answer/10208820): only the default SMS/Phone handler, or a listed exception, may request these. Link written from memory; verify."
+    },
+    "SmsInterception NORMAL_FOR Communication": {
+      "benign_rate_if_in_category": 0.0769,
+      "source": "Google Play policy 'Use of SMS or Call Log permission groups' (https://support.google.com/googleplay/android-developer/answer/10208820): only the default SMS/Phone handler, or a listed exception, may request these. Link written from memory; verify."
+    },
+    "AccessibilityAbuse ANOMALOUS_FOR Banking": {
+      "benign_rate_if_in_category": 0.0061,
+      "source": "Google Play AccessibilityService API policy (https://support.google.com/googleplay/android-developer/answer/10964491): only apps that help people with disabilities, or listed exceptions (e.g. password managers, automation), may use it. Benign firing 0.6% on CICMalDroid."
+    },
+    "AccessibilityAbuse ANOMALOUS_FOR Game": {
+      "benign_rate_if_in_category": 0.0061,
+      "source": "Google Play AccessibilityService API policy (https://support.google.com/googleplay/android-developer/answer/10964491): only apps that help people with disabilities, or listed exceptions (e.g. password managers, automation), may use it. Benign firing 0.6% on CICMalDroid."
+    },
+    "AccessibilityAbuse ANOMALOUS_FOR Wallpaper": {
+      "benign_rate_if_in_category": 0.0061,
+      "source": "Google Play AccessibilityService API policy (https://support.google.com/googleplay/android-developer/answer/10964491): only apps that help people with disabilities, or listed exceptions (e.g. password managers, automation), may use it. Benign firing 0.6% on CICMalDroid."
+    }
+  },
+  "transparent_sensitive_permissions": {
+    "malicious": {
+      ">=1 sensitive permissions": {
+        "apps": 8366,
+        "rate": 0.8534
+      },
+      ">=3 sensitive permissions": {
+        "apps": 5758,
+        "rate": 0.5874
+      }
+    },
+    "benign": {
+      ">=1 sensitive permissions": {
+        "apps": 898,
+        "rate": 0.5003
+      },
+      ">=3 sensitive permissions": {
+        "apps": 185,
+        "rate": 0.1031
+      }
+    }
+  },
+  "hard_override_check": {
+    "R001_SMS_INTERCEPT_NONCOMM (category Banking)": {
+      "benign_rate": 0.0769,
+      "hard_override": false,
+      "allowed": true
+    }
+  },
+  "source": "CICMalDroid 2020 permission matrix (permissions only; stage-1 evidence)"
+}

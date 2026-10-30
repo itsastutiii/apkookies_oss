@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # CPU-only torch wheel (the default Linux wheel pulls in CUDA)
+          pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.txt
+
+      - name: "Lint (blocking: syntax errors, undefined names)"
+        run: ruff check . --select E9,F63,F7,F82
+
+      - name: "Lint (full report, non-blocking until the backlog is cleared)"
+        run: ruff check . --exit-zero --statistics
+
+      - name: Tests
+        run: pytest -q
+
+  quark:
+    # Optional extra: real Quark rules against the DEX fixtures.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+
+      - name: Install dependencies + quark extra + pinned rules
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.txt
+          pip install "quark-engine==26.10.1"
+          git clone https://github.com/quark-engine/quark-rules "$RUNNER_TEMP/quark-rules"
+          git -C "$RUNNER_TEMP/quark-rules" checkout 514c21ca43e1cd41c51c72054d3b5581c59e1f0f
+
+      - name: Quark tests
+        env:
+          QUARK_RULES_DIR: ${{ runner.temp }}/quark-rules/rules
+        run: pytest -q tests/test_quark.py -rs

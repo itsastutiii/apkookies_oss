@@ -1,0 +1,35 @@
+# Pinned environment: Python 3.10.5 (macOS). The == versions below are VERIFIED:
+# they run the test suite and load the shipped models in ml/models/ (base: the
+# original ML environment; androguard 4.1.4 and py-tlsh added Oct 2026).
+# Install: pip install -r requirements.txt
+# Other optional extras (unverified versions) live in pyproject.toml.
+
+# Core API
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+pydantic==2.11.4
+pydantic-settings==2.9.1
+python-multipart==0.0.20
+httpx==0.28.1
+PyYAML==6.0.2
+structlog==25.2.0
+
+# Static analysis (required: it supplies the ML model's inputs)
+androguard==4.1.4
+py-tlsh==5.0.0      # primary fuzzy hash (builds from source: needs a C++ compiler)
+
+# Scoring / ML (hard imports in backend/scoring)
+numpy==1.26.4
+joblib==1.4.2
+torch==2.6.0
+xgboost==2.1.4
+scikit-learn==1.5.2
+pandas==2.2.3
+
+# Previously default-installed, NOT in the verified env (versions unverified):
+google-genai>=1.0   # Gemini report explanations (falls back to a template without it)
+tldextract>=5.1     # IOC domain parsing (falls back to a built-in TLD list)
+
+# Dev
+pytest==8.3.5
+ruff==0.11.5

@@ -1,0 +1,22 @@
+# Package names of Indian bank and UPI apps that banking trojans target.
+#
+# Used by rule R002 only: accessibility + overlay escalates from "warn" to
+# "block" when the app's own code also names one of these apps (an overlay
+# target list), since that means it watches for the bank app to open.
+# The app's own package is never counted, and genuine shopping/UPI apps that
+# list payment apps for a UPI chooser only matter in combination with
+# accessibility + overlay.
+#
+# Packages in config/bank_allowlist.yaml are added automatically.
+# Verify each entry against the Play Store listing before relying on it
+# (these were written from memory, not checked online).
+packages:
+  - com.sbi.lotusintouch                      # YONO SBI
+  - com.csam.icici.bank.imobile               # ICICI iMobile
+  - com.snapwork.hdfc                         # HDFC Bank
+  - com.axis.mobile                           # Axis Mobile
+  - com.msf.kbank.mobile                      # Kotak
+  - net.one97.paytm                           # Paytm
+  - com.phonepe.app                           # PhonePe
+  - com.google.android.apps.nbu.paisa.user    # Google Pay (India)
+  - in.org.npci.upiapp                        # BHIM

@@ -1,0 +1,360 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://apkookies.local/schemas/report.schema.json",
+  "title": "APKookies Analysis Report",
+  "description": "Shared, versioned report contract consumed by every module and touchpoint. Every GenAI claim must trace back to an entry in `evidence` (RAG grounding requirement).",
+  "type": "object",
+  "required": ["schema_version", "report_id", "status", "created_at", "input", "verdict", "risk"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "report_id": { "type": "string", "description": "UUID for this analysis run." },
+    "status": { "enum": ["processing", "complete", "failed"] },
+    "sandbox_job_id": { "type": ["string", "null"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "completed_at": { "type": ["string", "null"], "format": "date-time" },
+    "human_review_required": {
+      "type": "boolean",
+      "description": "True when severity>=critical; gates automated action."
+    },
+
+    "input": {
+      "type": "object",
+      "required": ["input_type"],
+      "additionalProperties": false,
+      "properties": {
+        "input_type": { "enum": ["apk", "url"] },
+        "source_touchpoint": {
+          "enum": ["bank_sdk", "whatsapp_bot", "browser_extension", "soc_portal", "api"]
+        },
+        "url": { "type": ["string", "null"] },
+        "filename": { "type": ["string", "null"] },
+        "package_name": { "type": ["string", "null"] }
+      }
+    },
+
+    "hashes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "md5": { "type": ["string", "null"] },
+        "sha256": { "type": ["string", "null"] },
+        "ssdeep": { "type": ["string", "null"] },
+        "tlsh": { "type": ["string", "null"] },
+        "dex_count": { "type": ["integer", "null"], "description": "Number of classes*.dex files hashed." },
+        "dex_sha256": { "type": ["string", "null"], "description": "SHA-256 of the uncompressed DEX contents (all classes*.dex in load order). Survives re-zip/re-sign." },
+        "dex_ssdeep": { "type": ["string", "null"] },
+        "dex_tlsh": { "type": ["string", "null"] },
+        "manifest_sha256": { "type": ["string", "null"], "description": "SHA-256 of the binary AndroidManifest.xml." },
+        "manifest_ssdeep": { "type": ["string", "null"] },
+        "manifest_tlsh": { "type": ["string", "null"] },
+        "fuzzy_status": { "type": ["string", "null"], "enum": ["available", "partial", "unavailable", null], "description": "Whether ssdeep/TLSH were installed for this analysis." },
+        "fuzzy_note": { "type": ["string", "null"], "description": "Explanation when fuzzy hashing was not fully available." },
+        "cluster_id": { "type": ["string", "null"], "description": "Variant-family/lineage id." },
+        "inherited_verdict_from": {
+          "type": ["string", "null"],
+          "description": "Source (APK sha256 or cluster id) of a verdict inherited by DEX-content or fuzzy match. Only malicious verdicts are ever inherited."
+        }
+      }
+    },
+
+    "verdict": {
+      "type": "object",
+      "required": ["label", "confidence", "decision_path"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "enum": ["benign", "suspicious", "malicious", "unknown"] },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "decision_path": {
+          "type": "array",
+          "description": "Ordered stages that produced the verdict.",
+          "items": {
+            "enum": [
+              "hash_exact_lookup", "fuzzy_cluster_inheritance", "dex_content_match", "static_analysis",
+              "static_rule_scoring", "kg_rgcn_scoring", "rules_engine_override", "dynamic_sandbox", "genai_summary"
+            ]
+          }
+        },
+        "provenance": {
+          "type": ["object", "null"],
+          "description": "What produced this verdict: source (static|sandbox|analyst), scoring_version, code_version, model_files and config_files hashes, fingerprint, recorded_at; analyst and reason for overrides.",
+          "additionalProperties": true
+        },
+        "stale_previous_verdict": {
+          "type": ["string", "null"],
+          "description": "A remembered verdict from an older model/config existed; the sample was re-analysed and this was the old verdict."
+        }
+      }
+    },
+
+    "risk": {
+      "type": "object",
+      "required": ["score", "severity"],
+      "additionalProperties": false,
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "severity": { "enum": ["low", "medium", "high", "critical"] },
+        "scoring_mode": {
+          "enum": ["rules", "model", "retrained", null],
+          "description": "Engine behind the base score: rules (transparent, no ML), model (shipped ML model, experimental), retrained (AndroZoo-trained models). Null on reports made before modes existed."
+        },
+        "components": {
+          "type": "object",
+          "description": "Model inputs and diagnostics (prior, embedding signal, model probability). Not additive; see breakdown.",
+          "additionalProperties": { "type": "number" }
+        },
+        "breakdown": {
+          "type": "array",
+          "description": "How the final score was built, in order. The deltas sum to score.",
+          "items": {
+            "type": "object",
+            "required": ["step", "kind", "delta", "score_after"],
+            "additionalProperties": false,
+            "properties": {
+              "step": { "type": "string" },
+              "kind": { "enum": ["base", "add", "floor"] },
+              "delta": { "type": "number" },
+              "score_after": { "type": "number", "minimum": 0, "maximum": 1 },
+              "detail": { "type": "string" }
+            }
+          }
+        },
+        "rules_triggered": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["rule_id", "description"],
+            "properties": {
+              "rule_id": { "type": "string" },
+              "description": { "type": "string" },
+              "hard_override": { "type": "boolean", "description": "Floor 0.90 and no sandbox. Only for R004 (package + certificate impersonation) and R005 (evidence stage 4-5)." },
+              "min_score": { "type": ["number", "null"] },
+              "weight": { "type": ["number", "null"], "description": "Amount added to the score by graded evidence." },
+              "stage": { "type": ["integer", "null"], "minimum": 1, "maximum": 5, "description": "Evidence stage reached (Quark-Engine's: 1 permission, 2 API call, 3 combination, 4 call sequence, 5 data flow); null for identity or IOC evidence." }
+            }
+          }
+        }
+      }
+    },
+
+    "static_bundle": {
+      "type": ["object", "null"],
+      "description": "Complete serialized output from the static-analysis pipeline.",
+      "additionalProperties": true
+    },
+
+    "dynamic_bundle": {
+      "type": ["object", "null"],
+      "description": "Complete serialized output from the dynamic sandbox pipeline.",
+      "additionalProperties": true
+    },
+
+    "static_findings": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "permissions": { "type": "array", "items": { "type": "string" } },
+        "capabilities": {
+          "type": "array",
+          "description": "KG-derived capabilities (e.g. RemoteSurveillance).",
+          "items": { "type": "string" }
+        },
+        "signing": {
+          "type": "object",
+          "properties": {
+            "schemes": { "type": "array", "items": { "enum": ["v1", "v2", "v3"] } },
+            "debug_signed": { "type": ["boolean", "null"], "description": "Signed with the Android SDK debug certificate." },
+            "app_name": { "type": ["string", "null"] },
+            "certificates": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["sha256"],
+                "properties": {
+                  "sha256": { "type": "string", "description": "SHA-256 of the DER certificate (lowercase hex)." },
+                  "sha1": { "type": ["string", "null"] },
+                  "subject": { "type": ["string", "null"] },
+                  "issuer": { "type": ["string", "null"] },
+                  "not_before": { "type": ["string", "null"] },
+                  "not_after": { "type": ["string", "null"] },
+                  "debug": { "type": "boolean" }
+                }
+              }
+            },
+            "bank_allowlist": {
+              "type": "object",
+              "description": "Package/app name vs genuine bank apps' signing certificates (config/bank_allowlist.yaml).",
+              "properties": {
+                "status": { "enum": ["not_listed", "genuine", "impersonation", "unavailable"] },
+                "bank": { "type": ["string", "null"] },
+                "detail": { "type": ["string", "null"] },
+                "matched_by": { "type": ["string", "null"], "enum": ["package", "app_name", null], "description": "package match + other cert = R004 (floor 0.90); app-name-only match = R004B (warning floor 0.40)." }
+              }
+            },
+            "cert_reuse": {
+              "type": "object",
+              "properties": {
+                "other_samples": { "type": "integer" },
+                "malicious_samples": { "type": "integer" }
+              }
+            }
+          }
+        },
+        "api_usage": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["category", "context"],
+            "properties": {
+              "category": { "enum": ["sms", "accessibility", "overlay", "network", "telephony", "webview", "crypto"] },
+              "context": { "type": "string" },
+              "suspicious": { "type": "boolean" },
+              "rule_id": { "type": ["string", "null"] },
+              "evidence": { "type": ["string", "null"], "enum": ["api_call", "string_ref", "subclass", null], "description": "How the use was found: a call site, a code-loaded string, or a subclass." },
+              "locations": { "type": "array", "items": { "type": "string" }, "description": "In-app methods/classes where it was found (Lpkg/Cls;->method)." }
+            }
+          }
+        },
+        "behaviours": {
+          "type": "array",
+          "description": "Behaviour-rule matches from optional analysers (Quark-Engine). Evidence only; not scored.",
+          "items": {
+            "type": "object",
+            "required": ["rule", "description", "confidence"],
+            "properties": {
+              "source": { "type": "string" },
+              "rule": { "type": "string" },
+              "description": { "type": "string" },
+              "confidence": { "type": "integer", "minimum": 0, "maximum": 100 },
+              "score": { "type": "number" },
+              "labels": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "obfuscation": {
+          "type": "array",
+          "items": { "enum": ["string_encryption", "reflection", "dex_class_loader", "packer", "native_stripping"] }
+        },
+        "anti_analysis": {
+          "type": "array",
+          "description": "Evasion techniques the sample itself uses.",
+          "items": {
+            "type": "object",
+            "required": ["technique", "mitre_id"],
+            "properties": {
+              "technique": { "enum": ["emulator_detection", "debugger_detection", "root_detection", "timing_stall", "trigger_gating"] },
+              "mitre_id": { "type": "string" },
+              "detected_where": { "enum": ["static", "runtime"] },
+              "markers": { "type": "array", "items": { "type": "string" }, "description": "APIs/strings that matched." },
+              "locations": { "type": "array", "items": { "type": "string" }, "description": "In-app methods where the check happens (Lpkg/Cls;->method)." },
+              "evidence": { "type": ["string", "null"], "enum": ["api_call", "string_ref", "field_read+string", "manifest", null] },
+              "common_in_benign": { "type": "boolean", "description": "Legitimate apps also do this (e.g. bank apps check for root), so it is weak evidence." }
+            }
+          }
+        }
+      }
+    },
+
+    "dynamic_findings": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "executed": { "type": "boolean" },
+        "sandbox_run_id": { "type": ["string", "null"] },
+        "runtime_behaviors": { "type": "array", "items": { "type": "string" } },
+        "network": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "kind": { "enum": ["dns", "http", "https", "tcp"] },
+              "indicator": { "type": "string" },
+              "is_c2": { "type": "boolean" },
+              "is_exfil": { "type": "boolean" }
+            }
+          }
+        },
+        "syscall_traces": { "type": "array", "items": { "type": "string" } },
+        "overlay_attempts": { "type": "integer", "minimum": 0 }
+      }
+    },
+
+    "threat_intel": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "family": { "type": ["string", "null"] },
+        "family_confidence": { "type": ["number", "null"] },
+        "iocs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["type", "value"],
+            "properties": {
+              "type": { "enum": ["domain", "ip", "ip_like", "url", "hash", "telegram_token", "email"], "description": "ip = an IPv4 address in a network context (URL host or with a port); ip_like = a bare dotted number (could be a version string), unconfirmed." },
+              "value": { "type": "string" },
+              "enrichment": { "type": ["object", "null"] },
+              "telegram_c2_live": { "type": ["boolean", "null"] }
+            }
+          }
+        },
+        "stix_bundle_ref": { "type": ["string", "null"] }
+      }
+    },
+
+    "mitre_attack": {
+      "type": "array",
+      "description": "Techniques mapped for the SOC heatmap.",
+      "items": {
+        "type": "object",
+        "required": ["technique_id", "tactic"],
+        "properties": {
+          "technique_id": { "type": "string" },
+          "technique_name": { "type": "string" },
+          "tactic": { "type": "string" },
+          "evidence_refs": { "type": "array", "items": { "type": "string" } },
+          "evidence_strength": { "type": ["string", "null"], "enum": ["permission", "api_call", "runtime", null], "description": "Strongest evidence behind the mapping: permission declared < API call found < observed at runtime." },
+          "attack_version": { "type": ["string", "null"], "description": "Pinned ATT&CK Mobile release the name/tactic came from." }
+        }
+      }
+    },
+
+    "evidence": {
+      "type": "array",
+      "description": "Canonical artifact store. GenAI explanations MUST cite these ids; any uncited claim is rejected.",
+      "items": {
+        "type": "object",
+        "required": ["evidence_id", "source", "summary"],
+        "properties": {
+          "evidence_id": { "type": "string" },
+          "source": { "enum": ["static", "dynamic", "threat_intel", "hashing", "knowledge_graph"] },
+          "summary": { "type": "string" },
+          "raw_ref": { "type": ["string", "null"], "description": "Pointer to raw artifact (ephemeral)." }
+        }
+      }
+    },
+
+    "explanation": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "plain_language": { "type": "string" },
+        "grounded": { "type": "boolean", "description": "False if any claim failed evidence-citation check." },
+        "cited_evidence_ids": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["action", "rationale"],
+        "properties": {
+          "action": { "enum": ["block", "warn", "allow", "credential_reset", "ioc_blacklist", "sandbox_escalation", "fraud_team_notify"] },
+          "rationale": { "type": "string" },
+          "priority": { "enum": ["low", "medium", "high"] }
+        }
+      }
+    }
+  }
+}

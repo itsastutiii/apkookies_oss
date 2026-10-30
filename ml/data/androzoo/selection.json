@@ -1,0 +1,238 @@
+{
+  "added_range": [
+    "2018-01-02",
+    "2026-04-29"
+  ],
+  "apk_mb": {
+    "benign": {
+      "max": 30.0,
+      "median": 11.4,
+      "total_gb": 25.2
+    },
+    "malicious": {
+      "max": 30.0,
+      "median": 10.3,
+      "total_gb": 23.89
+    }
+  },
+  "candidates_per_class": {
+    "benign": 56483,
+    "malicious": 30469
+  },
+  "config": {
+    "benign_max_detections": 0,
+    "malicious_min_detections": 4,
+    "max_apk_mb": 30.0,
+    "min_scan_gap_days": 90,
+    "per_class": 2000,
+    "seed": 20261027,
+    "since": "2018-01-01",
+    "until": "2026-04-30"
+  },
+  "eligible_apks_per_class": {
+    "benign": 13778655,
+    "malicious": 300628
+  },
+  "excluded": {
+    "grey_zone_detections": 1021522,
+    "larger_than_size_cap": 6030625,
+    "no_store_to_match": 300263,
+    "no_virustotal_result": 78119,
+    "outside_date_range": 6263578
+  },
+  "label_maturity": {
+    "mature_per_class": {
+      "benign": 649,
+      "malicious": 141
+    },
+    "recent_2024_on": {
+      "benign": {
+        "mature": 365,
+        "selected": 663
+      },
+      "malicious": {
+        "mature": 34,
+        "selected": 663
+      }
+    },
+    "rule": "vt_scan_date at least 90 days after added"
+  },
+  "list_bytes": 3898489958,
+  "list_file": "latest_with-added-date.csv.gz",
+  "list_sha256": "957fa050c6d2befedf6334694600c4236bc4aba92881f40663be7f8f894a34f7",
+  "malicious_markets": {
+    "360": 6,
+    "PlayDrone": 42,
+    "VirusShare": 43,
+    "anzhi": 325,
+    "appchina": 548,
+    "baidu": 3,
+    "fdroid": 8,
+    "liteapks": 41,
+    "nashstore": 17,
+    "play.google.com": 892,
+    "rustore": 138,
+    "tencent": 3
+  },
+  "per_year": {
+    "2018": {
+      "benign_candidates": 9953,
+      "malicious_candidates": 7848,
+      "mature": {
+        "benign": 106,
+        "malicious": 106
+      },
+      "taken_per_class": 222
+    },
+    "2019": {
+      "benign_candidates": 4024,
+      "malicious_candidates": 4121,
+      "mature": {
+        "benign": 1,
+        "malicious": 0
+      },
+      "taken_per_class": 222
+    },
+    "2020": {
+      "benign_candidates": 7615,
+      "malicious_candidates": 6013,
+      "mature": {
+        "benign": 0,
+        "malicious": 0
+      },
+      "taken_per_class": 222
+    },
+    "2021": {
+      "benign_candidates": 6303,
+      "malicious_candidates": 5132,
+      "mature": {
+        "benign": 0,
+        "malicious": 0
+      },
+      "taken_per_class": 222
+    },
+    "2022": {
+      "benign_candidates": 5597,
+      "malicious_candidates": 2446,
+      "mature": {
+        "benign": 177,
+        "malicious": 1
+      },
+      "taken_per_class": 222
+    },
+    "2023": {
+      "benign_candidates": 5212,
+      "malicious_candidates": 3483,
+      "mature": {
+        "benign": 0,
+        "malicious": 0
+      },
+      "taken_per_class": 222
+    },
+    "2024": {
+      "benign_candidates": 5454,
+      "malicious_candidates": 371,
+      "mature": {
+        "benign": 143,
+        "malicious": 22
+      },
+      "taken_per_class": 219
+    },
+    "2025": {
+      "benign_candidates": 5347,
+      "malicious_candidates": 372,
+      "mature": {
+        "benign": 222,
+        "malicious": 12
+      },
+      "taken_per_class": 222
+    },
+    "2026": {
+      "benign_candidates": 6978,
+      "malicious_candidates": 683,
+      "mature": {
+        "benign": 0,
+        "malicious": 0
+      },
+      "taken_per_class": 222
+    }
+  },
+  "play_only_malicious": 931,
+  "rows_read": 27773390,
+  "sampling_seconds": 183.3,
+  "selected": {
+    "benign": 1995,
+    "malicious": 1995
+  },
+  "selected_at": "2026-10-27T10:52:25+00:00",
+  "shortfall_per_class": {
+    "benign": 5,
+    "malicious": 5
+  },
+  "stores": {
+    "360": {
+      "eligible_benign": 41,
+      "eligible_malicious": 17,
+      "selected_per_class": 6
+    },
+    "anzhi": {
+      "eligible_benign": 92592,
+      "eligible_malicious": 101981,
+      "selected_per_class": 325
+    },
+    "apkdayi": {
+      "eligible_benign": 25,
+      "eligible_malicious": 39,
+      "selected_per_class": 1
+    },
+    "appchina": {
+      "eligible_benign": 106625,
+      "eligible_malicious": 86548,
+      "selected_per_class": 526
+    },
+    "baidu": {
+      "eligible_benign": 1,
+      "eligible_malicious": 0,
+      "selected_per_class": 0
+    },
+    "fdroid": {
+      "eligible_benign": 61845,
+      "eligible_malicious": 103,
+      "selected_per_class": 8
+    },
+    "liteapks": {
+      "eligible_benign": 588,
+      "eligible_malicious": 129,
+      "selected_per_class": 41
+    },
+    "nashstore": {
+      "eligible_benign": 2836,
+      "eligible_malicious": 52,
+      "selected_per_class": 17
+    },
+    "play": {
+      "eligible_benign": 13481335,
+      "eligible_malicious": 101216,
+      "selected_per_class": 934
+    },
+    "praguard": {
+      "eligible_benign": 1,
+      "eligible_malicious": 10115,
+      "selected_per_class": 1
+    },
+    "ruplay": {
+      "eligible_benign": 352,
+      "eligible_malicious": 1,
+      "selected_per_class": 0
+    },
+    "rustore": {
+      "eligible_benign": 32414,
+      "eligible_malicious": 427,
+      "selected_per_class": 136
+    }
+  },
+  "vt_scan_range": [
+    "2012-11-01",
+    "2026-05-29"
+  ]
+}

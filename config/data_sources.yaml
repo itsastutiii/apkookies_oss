@@ -1,0 +1,36 @@
+# Data-source registry for training, evaluation, and KG/RAG grounding.
+# These are pointers/config only — no data is bundled. Fill local paths / keys.
+
+training:
+  androzoo:
+    purpose: "Training corpus for retraining the scoring models"
+    url: "https://androzoo.uni.lu/"
+    access: "Personal API key (granted by AndroZoo); read only from the ANDROZOO_API_KEY env var"
+    # Features only: APKs are deleted right after extraction and never stored or committed.
+    local_path: "ml/data/androzoo/"   # built by ml/data/build_androzoo_dataset.py (docs/ANDROZOO.md)
+
+evaluation:
+  cicmaldroid_2020:
+    purpose: "Evaluation set; has banking/SMS-malware classes"
+    url: "https://www.unb.ca/cic/datasets/maldroid-2020.html"
+    local_path: "TODO: ./datasets/cicmaldroid2020"
+
+grounding:
+  mbc:
+    purpose: "Malware Behavior Catalog -> KG behavior nodes"
+    url: "https://github.com/MBCProject/mbc-markdown"
+  mitre_attack_mobile:
+    purpose: "Ground MITRETechnique nodes + report mapping"
+    url: "https://attack.mitre.org/matrices/mobile/"
+    stix_bundle: "https://github.com/mitre-attack/attack-stix-data"
+    pinned_version: "20.0"     # extract committed at data/mitre/attack-mobile.json
+    update_with: "python scripts/update_attack_mobile.py <version>"
+  cwe:
+    purpose: "Weakness taxonomy for code-intel findings"
+    url: "https://cwe.mitre.org/data/downloads.html"
+
+live_feeds:
+  threatfox:
+    purpose: "Live IOC enrichment"
+    url: "https://threatfox.abuse.ch/api/"
+    api_key_env: "THREATFOX_API_KEY"
